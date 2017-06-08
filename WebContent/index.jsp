@@ -24,7 +24,6 @@ comm:インデックスページ
 	<div class="container">
 		<div class="col-sm-10">
 			<p>インデックス</p>
-			あ
 				<a href="<%=request.getContextPath()%>/ToG101">生徒用ログインページ</a>
 				<a href="<%=request.getContextPath()%>/ToG201">管理用ログインページ</a>
 		</div>
