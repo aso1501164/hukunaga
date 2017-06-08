@@ -23,7 +23,7 @@ comm:インデックスページ
 	</div>
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
-		<form action="<%=request.getContextPath()%>/LoginManager" method="post" >
+		<form action="<%=request.getContextPath()%>/ManagerLoginServlet" method="post" >
 			<div class="form-group">
 				<label>ユーザーID</label>
 				<div class="row">
