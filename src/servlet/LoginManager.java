@@ -29,41 +29,6 @@ public class LoginManager extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		// リクエストパラメータの取得
-		request.setCharacterEncoding("UTF-8");
-		String userID = request.getParameter("userID");
-		String password = request.getParameter("password");
-
-		// 確認
-		System.out.println(userID);
-		System.out.println(password);
-
-		// ▼▼ログイン用処理▼▼
-		ManagerDAO managerDAO = new ManagerDAO();
-		Manager mn = new Manager();
-
-		// ログインユーザー情報を探す
-		mn = managerDAO.selectLoginManager(userID, password);
-		HttpSession session = request.getSession();
-
-		// ログイン処理
-		String path = "";
-		if (mn != null) { // idとpassが一致したらG102に遷移
-			// セッションスコープにログインユーザー情報を保存
-			session.setAttribute("loginTeacher", mn.getTeacher_id());
-			//request.setAttribute("alart"," ok");
-			path = "WEB-INF/jsp/G202.jsp";
-			//request.setAttribute("alart", "ok");	//←これ動かんので直して
-		} else { // 不一致なら
-			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";
-		}
-		RequestDispatcher rd = request.getRequestDispatcher(path);
-		rd.forward(request, response);
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -71,6 +36,41 @@ public class LoginManager extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+	}
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			// リクエストパラメータの取得
+			request.setCharacterEncoding("UTF-8");
+			String userID = request.getParameter("userID");
+			String password = request.getParameter("password");
+
+			// 確認
+			System.out.println(userID);
+			System.out.println(password);
+
+			// ▼▼ログイン用処理▼▼
+			ManagerDAO managerDAO = new ManagerDAO();
+			Manager mn = new Manager();
+
+			// ログインユーザー情報を探す
+			mn = managerDAO.selectLoginManager(userID, password);
+			HttpSession session = request.getSession();
+
+			// ログイン処理
+			String path = "";
+			if (mn != null) { // idとpassが一致したらG102に遷移
+				// セッションスコープにログインユーザー情報を保存
+				session.setAttribute("loginTeacher", mn.getTeacher_id());
+				//request.setAttribute("alart"," ok");
+				path = "WEB-INF/jsp/G202.jsp";
+				//request.setAttribute("alart", "ok");	//←これ動かんので直して
+			} else { // 不一致なら
+				request.setAttribute("alart"," no");
+				path = "WEB-INF/jsp/G101.jsp";
+			}
+			RequestDispatcher rd = request.getRequestDispatcher(path);
+			rd.forward(request, response);
 	}
 
 }
