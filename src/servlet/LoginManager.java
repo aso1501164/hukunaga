@@ -52,7 +52,6 @@ public class LoginManager extends HttpServlet {
 		// ログイン処理
 		String path = "";
 		if (mn != null) { // idとpassが一致したらG102に遷移
-			path = "WEB-INF/jsp/G102.jsp";
 			// セッションスコープにログインユーザー情報を保存
 			session.setAttribute("loginTeacher", mn.getTeacher_id());
 			//request.setAttribute("alart"," ok");
