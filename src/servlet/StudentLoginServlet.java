@@ -64,14 +64,14 @@ public class StudentLoginServlet extends HttpServlet {
 		String path = "";
 		if (st != null) { // idとpassが一致したらG102に遷移
 			path = "WEB-INF/jsp/G102.jsp";
-			// セッションスコープにログインユーザー情報を保存
-			session.setAttribute("loginStudent", st.getStudent_id());
+			// セッションスコープにログインユーザー情報を保存(getsession「loginStudentID」でいつでも生徒のID呼べるよ)
+			session.setAttribute("loginStudentID", st.getStudent_id());
 			//request.setAttribute("alart"," ok");
 			path = "WEB-INF/jsp/G102.jsp";
 			//request.setAttribute("alart", "ok");	//←これ動かんので直して
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";
+			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
