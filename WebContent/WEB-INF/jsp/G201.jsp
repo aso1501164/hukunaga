@@ -3,7 +3,7 @@ name:情シ専3B22 福永利恵
 date:2017/06/09
 comm:管理者ログインページ
 
-暫定です。担当の人が自由に変更してください
+暫定です。担当の人が自由に変更してください。
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
