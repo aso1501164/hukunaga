@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap.min.css" />
+<title>管理者</title>
 </head>
 <body>
-遷移オーケー
+OK
+
+<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
+
 </body>
 </html>

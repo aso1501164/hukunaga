@@ -24,7 +24,7 @@ comm:インデックスページ
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
 		<form action="<%=request.getContextPath()%>/ManagerLoginServlet" method="post" >
-			<div class="form-group">
+			<div class="center-block">
 				<label>ユーザーID</label>
 				<div class="row">
 					<div class="col-xs-3">
@@ -36,7 +36,7 @@ comm:インデックスページ
 				<label>パスワード</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="text" name="password" class="form-control" placeholder="パスワード">
+						<input type="password" name="password" class="form-control" placeholder="パスワード">
 					</div>
 				</div>
 			</div>
