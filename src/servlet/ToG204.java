@@ -31,8 +31,10 @@ public class ToG204 extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
+		//G204に遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G204.jsp");
 		rd.forward(request, response);
+
 	}
 
 	/**

@@ -16,7 +16,7 @@
 		<!--  Loginサーブレットに送信 -->
 		<form action="<%=request.getContextPath()%>/ManagerLoginServlet" method="post" >
 			<div class="center-block">
-				<label>分野</label>
+				<label>分類名</label>
 				<div class="row">
 					<div class="col-xs-3">
 						<input type="text" name="userID" class="form-control" placeholder="ユーザーID">
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 			</div>
-			<button type="submit">ログイン</button>
+			<button type="submit">登録</button>
 		</form>
 	</div>
 </body>
