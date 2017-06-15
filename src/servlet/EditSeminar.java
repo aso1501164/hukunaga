@@ -8,11 +8,16 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.SeminarDAO;
+import model.Seminar;
 
 /**
  * Servlet implementation class EditSeminar
@@ -44,6 +49,21 @@ public class EditSeminar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+
+		// リクエストパラメータの取得
+		request.setCharacterEncoding("UTF-8");
+
+		// セッション情報からログインユーザの情報を取得
+		HttpSession session = request.getSession();
+		String loginTeacherID = (String) session.getAttribute("loginTeacherID");
+
+		SeminarDAO seminarDao = new SeminarDAO();
+		Seminar seminar = new Seminar();
+
+		//キー値「subject」でG203へ渡す
+		request.setAttribute("subject",seminarDao.selectSubject(loginTeacherID));
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
+		rd.forward(request, response);
 	}
 
 }

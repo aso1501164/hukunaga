@@ -16,7 +16,9 @@ comm:科目編集画面（管理者用）
 	<div class="container">
 		<div class="col-sm-10">
 		<h1>科目一覧</h1>
-
+			<c:forEach var="su" items="${subject}" varStatus="status">
+				<c:out value="${su.seminar_name}" /><br>
+			</c:forEach>
 		</div>
 	</div>
 </body>
