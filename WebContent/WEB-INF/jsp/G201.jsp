@@ -21,7 +21,7 @@ comm:管理者ログインページ
 <body>
 <div class="container">
 
-	<h1>ログインページ（管理者用）</h1>
+	<h1>ログインページ（管理者用)</h1>
 	</div>
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
