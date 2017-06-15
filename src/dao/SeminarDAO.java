@@ -12,11 +12,13 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import model.Manager;
+import model.Seminar;
 
 public class SeminarDAO {
 		// データソース
@@ -61,31 +63,35 @@ public class SeminarDAO {
 		/**
 		 * userテーブルからログインするユーザを探す
 	*/
-		public Manager selectSubject(String teacher_id) {
+		public List<Seminar> selectSubject(String teacher_id) {
 			// ログインユーザ情報を格納
-			Manager mn = new Manager();
+			ArrayList<Seminar> list = new ArrayList<Seminar>();
 			try {
 				// DB接続
 				connection();
 				// SQL文設定の準備・SQL文の実行
-				String sql = "SELECT * FROM manager WHERE teacher_id = ? AND password = ?;";
+				String sql = "SELECT * FROM seminar WHERE teacher_id = ?;";
 
 				stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 				// ユーザの入力値を代入
 				stmt.setString(1, teacher_id);
-
 				// sql文を実行
 				rs = stmt.executeQuery();
 
-				// 1件目のデータにカーソルをあわせる
-				// データない場合はcatchに飛ぶ
-				rs.next();
+				while (rs.next()) {
+					Seminar se = new Seminar();
+					// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
+					// DBから取得したデータをScheduleオブジェクトに格納
 
-				// DBから取得したデータをuserオブジェクトに格納
-				mn.setTeacher_id(rs.getString("teacher_id"));
-				mn.setPassword(rs.getString("password"));
+					se.setSeminar_id(rs.getString("seminar_id"));
+					se.setSeminar_name(rs.getString("seminar_name"));
+					se.setSeminar_kind(rs.getString("seminar_kind"));
+					se.setTeacher_id(rs.getString("teacher_id"));
+					list.add(se);
+				}
 			} catch (Exception e) {
-				mn = null;
+				Seminar se = new Seminar();
+				se = null;
 				System.out.println("muri");
 			} finally {
 				try {
@@ -93,6 +99,6 @@ public class SeminarDAO {
 				} catch (Exception e) {
 			}
 		}
-			return mn;
+			return list;
 	}
 }
