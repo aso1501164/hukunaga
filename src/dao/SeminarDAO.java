@@ -61,7 +61,7 @@ public class SeminarDAO {
 		}
 
 		/**
-		 * userテーブルからログインするユーザを探す
+		 * その先生が担当の教科をすべて検索
 	*/
 		public List<Seminar> selectSubject(String teacher_id) {
 			// ログインユーザ情報を格納
