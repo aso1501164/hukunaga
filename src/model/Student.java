@@ -1,15 +1,15 @@
-
-
+ /* date:2017/06/16
+ * name:
+ * comm:student（学生）テーブルのモデル
+ */
 package model;
-
 import java.io.Serializable;
-
-public class Student implements Serializable {
-	// 変数
+public class Student implements Serializable{
 	private String student_id = "";
 	private String student_name = "";
 	private String password = "";
-	private String classname = "";
+	private String class_name = "";
+
 	public String getStudent_id() {
 		return student_id;
 	}
@@ -28,11 +28,11 @@ public class Student implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getClassname() {
-		return classname;
+	public String getClass_name() {
+		return class_name;
 	}
-	public void setClassname(String classname) {
-		this.classname = classname;
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
 	}
 
 }
