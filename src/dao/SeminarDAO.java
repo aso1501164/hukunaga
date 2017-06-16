@@ -101,4 +101,34 @@ public class SeminarDAO {
 		}
 			return list;
 	}
+
+		/**
+		 * Seminarテーブルの科目情報を削除
+		 */
+		public void deleteSeminar(String seminar_id) {
+
+			try {
+				// DB接続
+				connection();
+
+				String sql = "DELETE FROM seminar WHERE seminar_id = ? ;";
+
+				stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+				stmt.setString(1, seminar_id);
+
+				// sql文を実行
+				int cnt = stmt.executeUpdate();
+
+				// コミット
+				con.commit();
+
+			} catch (Exception e) {
+			} finally {
+				try {
+					close();
+				} catch (Exception e) {
+				}
+			}
+		}
+
 }

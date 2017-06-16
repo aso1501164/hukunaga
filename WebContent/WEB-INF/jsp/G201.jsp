@@ -19,8 +19,8 @@ comm:管理者ログインページ
 </head>
 
 <body>
+<div class="center">
 <div class="container">
-
 	<h1>ログインページ（管理者用)</h1>
 	</div>
 	<div class="container">
@@ -44,6 +44,7 @@ comm:管理者ログインページ
 			</div>
 			<button type="submit">ログイン</button>
 		</form>
+	</div>
 	</div>
 </body>
 </html>

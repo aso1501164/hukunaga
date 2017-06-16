@@ -34,10 +34,10 @@ function submitChk() {
 </script>
 </head>
 <body>
+	<div class="center">
 	<div class="container">
 		<div class="col-sm-10">
 		<h1>科目一覧</h1>
-
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form class="form-group" name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
@@ -54,8 +54,8 @@ function submitChk() {
 								</form>
 									<input type="hidden" name="seminar_id" value="${su.seminar_id}">
 								<td>
-									<form name="deleteform" method="post" action="<%=request.getContextPath()%>/DeleteSubject" onsubmit="return submitChk()">
-										<button type='submit' name='delete' style="width: 90px" value='${weekplan.week}'>削除</button>
+									<form name="deleteform" method="post" action="<%=request.getContextPath()%>/DeleteSeminarServlet" onsubmit="return submitChk()">
+										<button type='submit' name='delete' style="width: 90px" value='${su.seminar_id}'>削除</button>
 									</form>
 								</td>
 							</tr>
@@ -64,6 +64,7 @@ function submitChk() {
 					<br>
 				</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

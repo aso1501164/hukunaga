@@ -11,15 +11,16 @@ comm:インデックスページ
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap.min.css" />
-<title>Insert title here</title>
+<title>ゼミ受講システム機能一覧</title>
 <script type="text/javascript">
 </script>
 </head>
 
 <body>
-<div class="container">
+<div class="center">
+	<div class="container">
 
-	<h1></h1>
+	<h1>ゼミ受講システム機能一覧</h1>
 	</div>
 	<div class="container">
 		<div class="col-sm-10">
@@ -27,6 +28,7 @@ comm:インデックスページ
 				<a href="<%=request.getContextPath()%>/ToG101">生徒用ログインページ</a>
 				<a href="<%=request.getContextPath()%>/ToG201">管理用ログインページ</a>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
