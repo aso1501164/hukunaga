@@ -38,7 +38,7 @@ comm:生徒用ログインページ
 				<label>パスワード</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="text" name="password" class="form-control" placeholder="パスワード">
+						<input type="password" name="password" class="form-control" placeholder="パスワード">
 					</div>
 				</div>
 			</div>
