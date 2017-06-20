@@ -41,7 +41,7 @@ public class StudentListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
-		String seminar_id = request.getParameter("seminar_id");
+		String seminar_id = request.getParameter("subject_id");
 
 		StudentDAO studentDao = new StudentDAO();
 		studentDao.selectStudentList(seminar_id);
