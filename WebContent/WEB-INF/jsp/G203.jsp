@@ -15,8 +15,8 @@ comm:科目編集画面（管理者用）
 <script type="text/javascript">
 function linkclick (num) {
 	//alert("linkclick in!：");
-	   document.getElementById("seminar_id").value = num;
-	   alert("セミナーidの値：" + document.getElementById("seminar_id").value);
+	   document.getElementById("subject_id").value = num;
+	   alert("セミナーidの値：" + document.getElementById("subject_id").value);
 	   document.formA.submit();
 }
 
@@ -49,13 +49,13 @@ function submitChk() {
 							</tr>
 							<tr>
 								<c:forEach var="su" items="${subject}" varStatus="status">
-									<td><c:out value="${su.seminar_name}" /></td>
+									<td><c:out value="${su.subject_name}" /></td>
 									<td><input type="submit" value="学生一覧" style="width: 90px"></td>
 								</form>
-									<input type="hidden" name="seminar_id" value="${su.seminar_id}">
+									<input type="hidden" name="subject_id" value="${su.subject_id}">
 								<td>
 									<form name="deleteform" method="post" action="<%=request.getContextPath()%>/DeleteSeminarServlet" onsubmit="return submitChk()">
-										<button type='submit' name='delete' style="width: 90px" value='${su.seminar_id}'>削除</button>
+										<button type='submit' name='delete' style="width: 90px" value='${su.subject_id}'>削除</button>
 									</form>
 								</td>
 							</tr>
