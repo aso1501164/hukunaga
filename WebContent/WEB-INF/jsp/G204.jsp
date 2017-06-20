@@ -33,7 +33,7 @@
 	</div>
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
-		<form action="<%=request.getContextPath()%>/" method="post" >
+		<form action="<%=request.getContextPath()%>/Registration" method="post" >
 			<div class="center-block">
 				<label>分類名</label>
 				<div class="row">
