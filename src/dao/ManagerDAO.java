@@ -68,7 +68,7 @@ public class ManagerDAO {
 				// DB接続
 				connection();
 				// SQL文設定の準備・SQL文の実行
-				String sql = "SELECT * FROM manager WHERE teacher_id = ? AND password = ?;";
+				String sql = "SELECT * FROM manager WHERE manager_id = ? AND password = ?;";
 
 				stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 				// ユーザの入力値を代入
@@ -83,7 +83,7 @@ public class ManagerDAO {
 				rs.next();
 
 				// DBから取得したデータをuserオブジェクトに格納
-				mn.setTeacher_id(rs.getString("teacher_id"));
+				mn.setManager_id(rs.getString("manager_id"));
 				mn.setPassword(rs.getString("password"));
 			} catch (Exception e) {
 				mn = null;

@@ -1,9 +1,3 @@
-/*
- * date:2017/06/09
- * name:福永利恵
- * comm:ゼミ科目編集用サーブレット（管理者向け）
- */
-
 package servlet;
 
 import java.io.IOException;
@@ -14,22 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.SubjectDAO;
-import model.Subject;
+import dao.StudentDAO;
 
 /**
- * Servlet implementation class EditSeminar
+ * Servlet implementation class StudentListServlet
  */
-@WebServlet("/EditSeminar")
-public class EditSeminar extends HttpServlet {
+@WebServlet("/StudentListServlet")
+public class StudentListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditSeminar() {
+    public StudentListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +32,6 @@ public class EditSeminar extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-
 	}
 
 	/**
@@ -49,20 +40,13 @@ public class EditSeminar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-
-		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
+		String seminar_id = request.getParameter("subject_id");
 
-		// セッション情報からログインユーザの情報を取得
-		HttpSession session = request.getSession();
-		String ManagerID = (String) session.getAttribute("ManagerID");
+		StudentDAO studentDao = new StudentDAO();
+		studentDao.selectStudentList(seminar_id);
 
-		SubjectDAO subjectDao = new SubjectDAO();
-		Subject subject = new Subject();
-
-		//キー値「subject」でG203へ渡す
-		request.setAttribute("subject",subjectDao.selectSubject(ManagerID));
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G202.jsp");
 		rd.forward(request, response);
 	}
 

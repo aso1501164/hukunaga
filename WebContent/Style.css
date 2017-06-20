@@ -1,0 +1,9 @@
+<!-- スタイルシートです自由に追記してください
+		<link rel="stylesheet" href="Style.css">でインポート　
+-->
+.center{
+  display: inline-block;
+  text-align: center;
+  margin-right: auto;
+  margin-left : auto;
+}
