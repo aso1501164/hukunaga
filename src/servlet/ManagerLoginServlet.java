@@ -1,3 +1,4 @@
+//使わん
 package servlet;
 
 import java.io.IOException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ManagerDAO;
+import dao.SubjectDAO;
 import model.Manager;
+import model.Subject;
 
 /**
  * Servlet implementation class ManagerLoginServlet
@@ -62,14 +65,25 @@ public class ManagerLoginServlet extends HttpServlet {
 		// ログイン処理
 		String path = "";
 		if (mn != null) { // idとpassが一致したらG102に遷移
-			// セッションスコープにログインユーザー情報を保存
-			session.setAttribute("loginTeacher", mn.getTeacher_id());
+			// セッションスコープにログインユーザー情報を保存(getsession「ManagerID」で先生のID呼べる)
+			session.setAttribute("ManagerID", mn.getManager_id());
 			//request.setAttribute("alart"," ok");
-			path = "WEB-INF/jsp/G202.jsp";
+			path = "WEB-INF/jsp/G203.jsp";
 			//request.setAttribute("alart", "ok");	//←これ動かんので直して
+
+			//ログインした先生の担当するゼミ教科の取得
+			SubjectDAO subjectDao = new SubjectDAO();
+			Subject subject = new Subject();
+			//キー値「subject」でG203へ渡す
+			request.setAttribute("subject",subjectDao.selectSubject(mn.getManager_id()));
+
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
+<<<<<<< HEAD
 			path = "WEB-INF/jsp/G201.jsp";
+=======
+			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
+>>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);

@@ -1,7 +1,9 @@
 <%--
 name:情シ専3B22 福永利恵
-date:2017/05/12
-comm:インデックスページ
+date:2017/06/09
+comm:生徒用ログインページ
+
+担当の人が自由に変更してください。
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +21,7 @@ comm:インデックスページ
 <body>
 <div class="container">
 
-	<h1>週間スケジュール</h1>
+	<h1>ログインページ（学生用）</h1>
 	</div>
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
