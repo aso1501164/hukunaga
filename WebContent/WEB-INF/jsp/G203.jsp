@@ -35,6 +35,7 @@ function submitChk() {
 </script>
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
 	<div class="center">
 	<div class="container">
 		<div class="col-sm-10">

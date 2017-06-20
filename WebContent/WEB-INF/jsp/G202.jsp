@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
 	<h1><c:out value="${subject_name}" />ゼミ受講学生一覧</h1>
 <div class="container">
 	<table class="table table-bordered" cellpadding="0">

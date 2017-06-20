@@ -75,7 +75,7 @@ public class ManagerLoginServlet extends HttpServlet {
 
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
+			path = "WEB-INF/jsp/G201.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
