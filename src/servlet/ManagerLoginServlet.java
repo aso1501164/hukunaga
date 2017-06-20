@@ -50,10 +50,6 @@ public class ManagerLoginServlet extends HttpServlet {
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
 
-		// 確認
-		System.out.println(userID);
-		System.out.println(password);
-
 		// ▼▼ログイン用処理▼▼
 		ManagerDAO managerDAO = new ManagerDAO();
 		Manager mn = new Manager();

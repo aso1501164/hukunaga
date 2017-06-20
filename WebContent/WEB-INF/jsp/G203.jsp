@@ -11,6 +11,7 @@ comm:科目編集画面（管理者用）
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 function linkclick (num) {
