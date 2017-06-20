@@ -79,11 +79,7 @@ public class ManagerLoginServlet extends HttpServlet {
 
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
-<<<<<<< HEAD
-			path = "WEB-INF/jsp/G201.jsp";
-=======
-			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
+			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてくださ
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
