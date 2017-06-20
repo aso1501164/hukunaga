@@ -11,8 +11,8 @@
 </head>
 <body>
 <jsp:include page="Gheader.jsp"/>
-	<h1><c:out value="${subject_name}" />ゼミ受講学生一覧</h1>
 <div class="container">
+	<h1><p class="text-primary"><c:out value="${subject_name}" />ゼミ受講学生一覧</p></h1>
 	<table class="table table-bordered" cellpadding="0">
 		<tr>
 			<td class="active">学部</td>
