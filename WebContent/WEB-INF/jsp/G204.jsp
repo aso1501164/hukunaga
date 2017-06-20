@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="/WEB-INF/jsp/common.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +12,24 @@
 <div class="container">
 
 	<h1>週間スケジュール</h1>
+	<!--
+	<table>
+		<c:forEach var="su" items="${sessionScope.classification}" varStatus="status">
+    <tr>
+        <td><c:out value="${su.classfication_name}"></c:out></td>
+    </tr>
+		</c:forEach>
+		</table>
+
+		<table>
+		<c:forEach var="su" items="${sessionScope.classification}" varStatus="status">
+    <tr>
+        <td><c:out value="${su.classfication_id}"></c:out></td>
+    </tr>
+		</c:forEach>
+		</table>
+		-->
+
 	</div>
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
@@ -20,9 +39,9 @@
 				<div class="row">
 					<div class="col-xs-3">
 						<select name="example">
-						<option value="選択肢1">選択肢1</option>
-						<option value="選択肢2">選択肢2</option>
-						<option value="選択肢3">選択肢3</option>
+						<c:forEach var="su" items="${sessionScope.classification}" varStatus="status">
+						<option value="${su.classfication_id}"><c:out value="${su.classfication_name}"></c:out></option>
+						</c:forEach>
 						</select>
 					</div>
 				</div>

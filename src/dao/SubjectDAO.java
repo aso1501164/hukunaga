@@ -9,6 +9,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import model.Classfication;
 import model.Subject;
 
 public class SubjectDAO {
@@ -98,6 +99,7 @@ public class SubjectDAO {
 	 */
 	public void deleteSubject(String subject_id) {
 
+
 		try {
 			// DB接続
 			connection();
@@ -120,6 +122,35 @@ public class SubjectDAO {
 			} catch (Exception e) {
 			}
 		}
+	}
+
+	public List<Classfication> setClassfication(){
+
+		ArrayList<Classfication> list = new ArrayList<Classfication>();
+		try{
+		connection();
+
+		String sql ="SELECT * FROM classification ";
+		stmt = con.prepareStatement(sql);
+
+		rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			Classfication su = new Classfication();
+			// DBから取得したデータをScheduleオブジェクトに格納
+			su.setClassfication_id(rs.getString("classification_id"));
+			su.setClassfication_name(rs.getString("classification_name"));
+			list.add(su);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			close();
+		} catch (Exception e) {
+		}
+	}
+		return list ;
 	}
 
 }

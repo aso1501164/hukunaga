@@ -39,6 +39,7 @@ function submitChk() {
 		<div class="col-sm-10">
 		<h1>科目一覧</h1>
 				<div class="form-group">
+				<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form class="form-group" name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
 						<table class="table table-bordered" cellpadding="0">
