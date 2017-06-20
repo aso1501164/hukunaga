@@ -87,7 +87,7 @@ public class ManagerDAO {
 				mn.setPassword(rs.getString("password"));
 			} catch (Exception e) {
 				mn = null;
-				System.out.println("muri");
+				System.out.println("マネージャー情報格納失敗");
 			} finally {
 				try {
 					close();
