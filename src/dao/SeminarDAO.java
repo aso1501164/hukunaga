@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import model.Manager;
+import model.Seminer;
 
 public class SeminarDAO {
 
@@ -59,9 +59,9 @@ public class SeminarDAO {
 			/**
 			 * userテーブルからログインするユーザを探す
 		*/
-			public Seminer selectLoginManager(String userID, String password) {
+			public Seminer Seminertouroku(String seminer_id) {
 				// ログインユーザ情報を格納
-				Manager mn = new Manager();
+				Seminer mn = new Seminer();
 				try {
 					// DB接続
 					connection();
@@ -70,8 +70,7 @@ public class SeminarDAO {
 
 					stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 					// ユーザの入力値を代入
-					stmt.setString(1, userID);
-					stmt.setString(2, password);
+
 
 					// sql文を実行
 					rs = stmt.executeQuery();
@@ -81,8 +80,6 @@ public class SeminarDAO {
 					rs.next();
 
 					// DBから取得したデータをuserオブジェクトに格納
-					mn.setTeacher_id(rs.getString("teacher_id"));
-					mn.setPassword(rs.getString("password"));
 				} catch (Exception e) {
 					mn = null;
 					System.out.println("muri");

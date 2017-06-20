@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap.min.css" />
 <title>科目登録</title>
 </head>
-<body>
+<body class="bg-success">
 <div class="container">
 
 	<h1>週間スケジュール</h1>
@@ -19,7 +19,11 @@
 				<label>分類名</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="text" name="userID" class="form-control" placeholder="ユーザーID">
+						<select name="example">
+						<option value="選択肢1">選択肢1</option>
+						<option value="選択肢2">選択肢2</option>
+						<option value="選択肢3">選択肢3</option>
+						</select>
 					</div>
 				</div>
 			</div>

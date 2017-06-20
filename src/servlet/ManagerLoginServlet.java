@@ -69,7 +69,7 @@ public class ManagerLoginServlet extends HttpServlet {
 			//request.setAttribute("alart", "ok");	//←これ動かんので直して
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";
+			path = "WEB-INF/jsp/G201.jsp";
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
