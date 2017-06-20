@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ManagerDAO;
-import dao.SeminarDAO;
+import dao.SubjectDAO;
 import model.Manager;
-import model.Seminar;
+import model.Subject;
 
 /**
  * Servlet implementation class ManagerLoginServlet
@@ -65,17 +65,17 @@ public class ManagerLoginServlet extends HttpServlet {
 		// ログイン処理
 		String path = "";
 		if (mn != null) { // idとpassが一致したらG102に遷移
-			// セッションスコープにログインユーザー情報を保存(getsession「loginTeacherID」でいつでも先生のID呼べるよ)
-			session.setAttribute("loginTeacherID", mn.getTeacher_id());
+			// セッションスコープにログインユーザー情報を保存(getsession「ManagerID」で先生のID呼べる)
+			session.setAttribute("ManagerID", mn.getManager_id());
 			//request.setAttribute("alart"," ok");
 			path = "WEB-INF/jsp/G203.jsp";
 			//request.setAttribute("alart", "ok");	//←これ動かんので直して
 
 			//ログインした先生の担当するゼミ教科の取得
-			SeminarDAO seminarDao = new SeminarDAO();
-			Seminar seminar = new Seminar();
+			SubjectDAO subjectDao = new SubjectDAO();
+			Subject subject = new Subject();
 			//キー値「subject」でG203へ渡す
-			request.setAttribute("subject",seminarDao.selectSubject(mn.getTeacher_id()));
+			request.setAttribute("subject",subjectDao.selectSubject(mn.getManager_id()));
 
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");

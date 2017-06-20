@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.SeminarDAO;
-import model.Seminar;
+import dao.SubjectDAO;
+import model.Subject;
 
 /**
  * Servlet implementation class EditSeminar
@@ -55,13 +55,13 @@ public class EditSeminar extends HttpServlet {
 
 		// セッション情報からログインユーザの情報を取得
 		HttpSession session = request.getSession();
-		String loginTeacherID = (String) session.getAttribute("loginTeacherID");
+		String ManagerID = (String) session.getAttribute("ManagerID");
 
-		SeminarDAO seminarDao = new SeminarDAO();
-		Seminar seminar = new Seminar();
+		SubjectDAO subjectDao = new SubjectDAO();
+		Subject subject = new Subject();
 
 		//キー値「subject」でG203へ渡す
-		request.setAttribute("subject",seminarDao.selectSubject(loginTeacherID));
+		request.setAttribute("subject",subjectDao.selectSubject(ManagerID));
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
 		rd.forward(request, response);
 	}

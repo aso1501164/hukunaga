@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.SeminarDAO;
+import dao.SubjectDAO;
 
 /**
  * Servlet implementation class DeleteSeminarServlet
@@ -49,21 +49,21 @@ public class DeleteSeminarServlet extends HttpServlet {
 		//doGet(request, response);
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String seminar_id = request.getParameter("delete");
+		String subject_id = request.getParameter("delete");
 
 		// ログインユーザー情報の取得
 		// HttpServletRequestからHttpSessionを取得
 		HttpSession session = request.getSession();
-		String loginTeacherID = (String) session.getAttribute("loginTeacherID");
+		String ManagerID = (String) session.getAttribute("ManagerID");
 
 		// ゼミ科目を削除する
-		SeminarDAO seminarDao = new SeminarDAO();
-		seminarDao.deleteSeminar(seminar_id);
+		SubjectDAO subjectDao = new SubjectDAO();
+		subjectDao.deleteSubject(subject_id);
 
-		System.out.println("delete:" + seminar_id);
+		System.out.println("delete:" + subject_id);
 
 		//キー値「subject」でG203へ渡す
-		request.setAttribute("subject",seminarDao.selectSubject(loginTeacherID));
+		request.setAttribute("subject",subjectDao.selectSubject(ManagerID));
 
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
