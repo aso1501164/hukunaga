@@ -8,7 +8,7 @@
 </head>
 <body>
 <form method="post" action="ToG106">
-<button type="submit" value="test">aa</button>
+<input type="submit" value="test">
 </form>
 
 </body>
