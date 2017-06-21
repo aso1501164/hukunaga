@@ -1,11 +1,17 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.HistoryDAO;
+import model.History;
 
 /**
  * Servlet implementation class ToG106
@@ -24,19 +30,17 @@ public class ToG106 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		String userid = (String)session.getAttribute("userid");
+		HttpSession session = request.getSession();
+		String student_id = (String)session.getAttribute("student_id");
 
-		DAO DAO = new DAO();
-		Model model = new Model();
+		HistoryDAO historyDAO = new HistoryDAO();
+		ArrayList<History> history = historyDAO.getHistory(student_id);
 
-		Subjects subjects = DAO.getModel(userid);
-
-		request.setAttribute("history",model);
+		request.setAttribute("History",history);
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/product-retrieve.jsp");
 		rd.forward(request, response);
-*/
+
 	}
 
 }

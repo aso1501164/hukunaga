@@ -8,9 +8,12 @@
 	import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import model.History;
 
 	public class HistoryDAO {
 		// データソース
@@ -50,5 +53,34 @@ import javax.sql.DataSource;
 			if (con != null) {
 				con.close();
 			}
+		}
+
+		public ArrayList<History> getHistory(String student_id) {
+			ArrayList<History> historyList = new ArrayList<History>();
+
+			try {
+				connection();
+
+				String sql = "SELECT * FROM history WHERE student_id = ? ORDER BY year";
+				stmt = con.prepareStatement(sql);
+				rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					History history = new History();
+					history.setStudent_id(rs.getString("student_id"));
+					history.setSubject_id_1(rs.getString("subject_id_1"));
+					history.setSubject_id_2(rs.getString("subject_id_2"));
+					historyList.add(history);
+				}
+			} catch (Exception e) {
+			} finally {
+				try {
+					close();
+				} catch (Exception e) {
+				}
+			}
+
+
+			return historyList;
 		}
 }

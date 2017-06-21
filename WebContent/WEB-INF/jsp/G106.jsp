@@ -12,9 +12,9 @@
 	<h1>履修履歴</h1>
 	<div align="center">
 		<table border=1>
-			<c:if test="${!empty ${Subjects }">
-				<c:forEach var="Subject" items="${Subjects }">
-				<th><c:out value="${Subject.year }"></c:out></th>
+			<c:if test="${!empty ${History }">
+				<c:forEach var="history" items="${History }">
+				<th><c:out value="${history.year }"></c:out></th>
 				<th></th>
 				<c:out value="・科目名：${Subject.subject1 }"></c:out>
 				<c:out value="・科目名：${Subject.subject2 }"></c:out>
@@ -24,7 +24,7 @@
 
 	</div>
 
-	<c:if test="${empty ${Subjects }">
+	<c:if test="${empty ${History }">
 		<c:out value="${message }" />
 	</c:if>
 	<input type="button" Value="戻る" onClick="history.go(-1);">
