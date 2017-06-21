@@ -9,6 +9,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import model.Classfication;
 import model.Subject;
 
 public class SubjectDAO {
@@ -94,9 +95,43 @@ public class SubjectDAO {
 }
 
 	/**
+	 * 科目idから科目名を取得
+*/
+	public String selectSubject_name(String subject_id) {
+		String subject_name = "";
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT subject_name FROM subject WHERE subject_id = ?;";
+
+			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
+			// ユーザの入力値を代入
+			stmt.setString(1, subject_id);
+			// sql文を実行
+			rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				subject_name = (rs.getString("subject_name"));
+			}
+		} catch (Exception e) {
+			Subject su = new Subject();
+			su = null;
+			System.out.println("muri");
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+		}
+	}
+		return subject_name;
+}
+
+	/**
 	 * Subjectテーブルの科目情報を削除
 	 */
 	public void deleteSubject(String subject_id) {
+
 
 		try {
 			// DB接続
@@ -121,5 +156,36 @@ public class SubjectDAO {
 			}
 		}
 	}
+
+	public List<Classfication> setClassfication(){
+
+		ArrayList<Classfication> list = new ArrayList<Classfication>();
+		try{
+		connection();
+
+		String sql ="SELECT * FROM classification ";
+		stmt = con.prepareStatement(sql);
+
+		rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			Classfication su = new Classfication();
+			// DBから取得したデータをScheduleオブジェクトに格納
+			su.setClassfication_id(rs.getString("classification_id"));
+			su.setClassfication_name(rs.getString("classification_name"));
+			list.add(su);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			close();
+		} catch (Exception e) {
+		}
+	}
+		return list ;
+	}
+	
+	
 
 }

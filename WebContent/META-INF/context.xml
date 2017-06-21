@@ -6,8 +6,13 @@
 			name="jdbc/MySQL"
 			type="javax.sql.DataSource"
 			url="jdbc:mysql://localhost/newyork"
+<<<<<<< HEAD
 			username="jsb23"
 			password="jsb23"
+=======
+			username="root"
+			password="root"
+>>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 	/>
 
 </Context>

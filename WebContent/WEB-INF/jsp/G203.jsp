@@ -11,6 +11,7 @@ comm:科目編集画面（管理者用）
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 function linkclick (num) {
@@ -34,11 +35,13 @@ function submitChk() {
 </script>
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
 	<div class="center">
 	<div class="container">
 		<div class="col-sm-10">
 		<h1>科目一覧</h1>
 				<div class="form-group">
+				<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form class="form-group" name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
 						<table class="table table-bordered" cellpadding="0">

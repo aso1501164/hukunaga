@@ -50,10 +50,6 @@ public class ManagerLoginServlet extends HttpServlet {
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
 
-		// 確認
-		System.out.println(userID);
-		System.out.println(password);
-
 		// ▼▼ログイン用処理▼▼
 		ManagerDAO managerDAO = new ManagerDAO();
 		Manager mn = new Manager();
@@ -79,7 +75,7 @@ public class ManagerLoginServlet extends HttpServlet {
 
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
+			path = "WEB-INF/jsp/G201.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
