@@ -31,14 +31,14 @@ public class ToG106 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String student_id = (String)session.getAttribute("student_id");
+		String student_id = "0001" ;//(String)session.getAttribute("student_id");
 
 		HistoryDAO historyDAO = new HistoryDAO();
 		ArrayList<History> history = historyDAO.getHistory(student_id);
 
 		request.setAttribute("History",history);
 
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/product-retrieve.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G106.jsp");
 		rd.forward(request, response);
 
 	}

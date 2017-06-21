@@ -72,8 +72,7 @@ public class StudentDAO {
 			// DB接続
 			connection();
 			// SQL文設定の準備・SQL文の実行
-			String sql = "SELECT * FROM student WHERE student_id = ? AND password = ?;";
-
+			String sql = "SELECT * FROM student WHERE student_id = ? AND password = ?";
 			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 			// ユーザの入力値を代入
 			stmt.setString(1, userID);
