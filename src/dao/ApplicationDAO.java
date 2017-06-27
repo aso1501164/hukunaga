@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import model.Application;
 import model.Student;
 
+
 	public class ApplicationDAO {
 		// データソース
 		DataSource ds = null;
