@@ -9,7 +9,14 @@ public class Subject implements Serializable{
 	private String classification_id = "";
 	private String subject_name = "";
 	private String maneger_id = "";
+	private String classification_name = "";
 
+	public String getClassification_name() {
+		return classification_name;
+	}
+	public void setClassification_name(String classification_name) {
+		this.classification_name = classification_name;
+	}
 	public String getSubject_id() {
 		return subject_id;
 	}
