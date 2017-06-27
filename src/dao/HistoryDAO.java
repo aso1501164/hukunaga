@@ -63,6 +63,7 @@ import model.History;
 
 				String sql = "SELECT * FROM history WHERE student_id = ? ORDER BY year";
 				stmt = con.prepareStatement(sql);
+				stmt.setString(1, student_id);
 				rs = stmt.executeQuery();
 
 				while (rs.next()) {
@@ -70,6 +71,7 @@ import model.History;
 					history.setStudent_id(rs.getString("student_id"));
 					history.setSubject_id_1(rs.getString("subject_id_1"));
 					history.setSubject_id_2(rs.getString("subject_id_2"));
+					history.setYear(rs.getString("year"));
 					historyList.add(history);
 				}
 			} catch (Exception e) {

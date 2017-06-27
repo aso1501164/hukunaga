@@ -1,13 +1,6 @@
-/*
- * date:2017/06/20
- * name:福永利恵
- * comm:ゼミ受講学生一覧検索（管理者向け）
- */
-
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ApplicationDAO;
-import dao.SubjectDAO;
-import model.Student;
+import dao.StudentDAO;
 
 /**
  * Servlet implementation class StudentListServlet
@@ -50,27 +41,10 @@ public class StudentListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
-		String subject_id = request.getParameter("subject_id");
-		System.out.println("subject_id:"+subject_id);
+		String seminar_id = request.getParameter("subject_id");
 
-		ApplicationDAO applicationDao = new ApplicationDAO();
-		SubjectDAO subjectDao = new SubjectDAO();
-
-		Student student = new Student();
-
-		//キー値「student」で学生情報を渡す
-		request.setAttribute("student",applicationDao.selectStudentList(subject_id));
-
-		//▼▼▼▼確認用▼▼▼▼
-		List<Student> list1 = applicationDao.selectStudentList(subject_id)	;
-		for(Student list2 : list1){
-			System.out.println(list2.getStudent_name());
-			System.out.println(list2.getClass_name());
-		}
-		//▼▼▼▼▼▼▼▼▼▼
-
-		//キー値「subject_name」で科目名を渡す
-		request.setAttribute("subject_name",subjectDao.selectSubject_name(subject_id));
+		StudentDAO studentDao = new StudentDAO();
+		studentDao.selectStudentList(seminar_id);
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G202.jsp");
 		rd.forward(request, response);

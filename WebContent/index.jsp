@@ -23,8 +23,10 @@ comm:インデックスページ
 	<h1>ゼミ受講システム機能一覧</h1>
 	</div>
 	<div class="container">
-		<div class="col-md-10">
+		<div class="col-sm-10">
 			<p>インデックス</p>
+			<form action="ToG106" method="post">
+			<input type="submit" value="test"></form>
 				<a href="<%=request.getContextPath()%>/ToG101">生徒用ログインページ</a>
 				<a href="<%=request.getContextPath()%>/ToG201">管理用ログインページ</a>
 		</div>

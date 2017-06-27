@@ -39,6 +39,10 @@ public class ToG106 extends HttpServlet {
 		ArrayList<History> history = historyDAO.getHistory(student_id);
 
 		request.setAttribute("History",history);
+		if (history.size() == 0) {
+			// 注文履歴がなかった場合はリクエストスコープへメッセージを格納する。
+			request.setAttribute("message", "現在履歴情報はありません。");
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G106.jsp");
 		rd.forward(request, response);

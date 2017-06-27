@@ -41,7 +41,7 @@ public class ToG204 extends HttpServlet {
 		ArrayList<Classfication> list = new ArrayList<Classfication>();
 
 		SubjectDAO subjectdao = new SubjectDAO();
-		list = (ArrayList<Classfication>) subjectdao.setClassfication();
+		//list = (ArrayList<Classfication>) subjectdao.setClassfication();
 		session.setAttribute("classification", list);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G204.jsp");
 		rd.forward(request, response);

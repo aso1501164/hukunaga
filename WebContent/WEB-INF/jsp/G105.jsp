@@ -23,8 +23,8 @@
 		<c:if test="${empty Subject }">
 			<c:out value="${message }" />
 		</c:if>
-		<input type="button" Value="戻る" onClick="history.go(-1);"> <input
-			type="submit" value="完了">
+		<input type="button" Value="戻る" onClick="history.go(-1);">
+		<input type="submit" value="完了">
 	</form>
 </body>
 </html>

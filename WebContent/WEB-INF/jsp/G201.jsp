@@ -14,6 +14,8 @@ comm:管理者ログインページ
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
+<script type="text/javascript">
+</script>
 </head>
 
 <body>
@@ -24,10 +26,10 @@ comm:管理者ログインページ
 	<div class="container">
 		<!--  Loginサーブレットに送信 -->
 		<form action="<%=request.getContextPath()%>/ManagerLoginServlet" method="post" >
-			<div class="center-block">
+			<div class="form-group">
 				<label>ユーザーID</label>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-xs-3">
 						<input type="text" name="userID" class="form-control" placeholder="ユーザーID">
 					</div>
 				</div>
@@ -36,7 +38,7 @@ comm:管理者ログインページ
 				<label>パスワード</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="password" name="password" class="form-control" placeholder="パスワード">
+						<input type="text" name="password" class="form-control" placeholder="パスワード">
 					</div>
 				</div>
 			</div>

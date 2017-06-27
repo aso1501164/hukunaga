@@ -8,7 +8,10 @@
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/ToG106" method="post">
-<input type="submit" value="test">
+<input type="submit" value="G106">
+</form>
+<form action="<%=request.getContextPath()%>/ToG103" method="post">
+<input type="submit" value="G103">
 </form>
 </body>
 </html>
