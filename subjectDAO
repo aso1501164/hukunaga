@@ -4,8 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 import model.Classfication;
 import model.Subject;
 public class SubjectDAO {
@@ -48,17 +50,15 @@ public class SubjectDAO {
     /**
      * その先生が担当の教科をすべて検索
 */
-    public List<Subject> selectSubject(String teacher_id) {
+    public List<Subject> selectSubject() {
         // ログインユーザ情報を格納
         ArrayList<Subject> list = new ArrayList<Subject>();
         try {
             // DB接続
             connection();
             // SQL文設定の準備・SQL文の実行
-            String sql = "SELECT * FROM subject WHERE manager_id = ?;";
+            String sql = "SELECT * FROM subject";
             stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
-            // ユーザの入力値を代入
-            stmt.setString(1, teacher_id);
             // sql文を実行
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -195,5 +195,6 @@ public class SubjectDAO {
     }
         return mna;
 }
+
 }
 
