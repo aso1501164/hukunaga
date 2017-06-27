@@ -14,10 +14,15 @@
 		<table border=1>
 			<c:if test="${!empty History }">
 				<c:forEach var="history" items="${History }">
-				<th><c:out value="${history.year }"></c:out></th>
-				<th></th>
-				<c:out value="・科目名：${history.subject_id_1 }"></c:out>
-				<c:out value="・科目名：${history.subject_id_2}"></c:out>
+				<tr>
+				<td><c:out value="${history.year }"></c:out></td>
+				<td><c:out value="・科目名：${history.subject_id_1 }"></c:out></td>
+				</tr>
+				<tr>
+				<td></td>
+				<td><c:out value="・科目名：${history.subject_id_2}"></c:out></td>
+				</tr>
+
 				</c:forEach>
 			</c:if>
 		</table>
