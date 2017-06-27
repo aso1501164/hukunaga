@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-遷移オーケー
+<form action="<%=request.getContextPath()%>/ToG106" method="post">
+<input type="submit" value="test">
+</form>
 </body>
 </html>
