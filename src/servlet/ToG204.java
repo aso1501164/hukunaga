@@ -19,7 +19,7 @@ import model.Classfication;
  */
 @WebServlet("/ToG204")
 public class ToG204 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,33 +29,33 @@ public class ToG204 extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setCharacterEncoding("UTF-8");
-		//G204に遷移するHe¥
-		HttpSession session = request.getSession();
-		ArrayList<Classfication> list = new ArrayList<Classfication>();
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        //response.getWriter().append("Served at: ").append(request.getContextPath());
+        request.setCharacterEncoding("UTF-8");
+        //G204に遷移するHe¥
+        HttpSession session = request.getSession();
+        ArrayList<Classfication> list = new ArrayList<Classfication>();
 
-		SubjectDAO subjectdao = new SubjectDAO();
-		//list = (ArrayList<Classfication>) subjectdao.setClassfication();
-		session.setAttribute("classification", list);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G204.jsp");
-		rd.forward(request, response);
+        SubjectDAO subjectdao = new SubjectDAO();
+        list = (ArrayList<Classfication>) subjectdao.setClassfication();
+        session.setAttribute("classification", list);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G204.jsp");
+        rd.forward(request, response);
 
-	}
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        //doGet(request, response);
 
 
-	}
+    }
 
 }
