@@ -86,6 +86,7 @@ public class ManagerDAO {
 				mn.setManager_id(rs.getString("manager_id"));
 				mn.setPassword(rs.getString("password"));
 				mn.setPermission(rs.getString("permission"));
+				mn.setClass_name(rs.getString("class_name"));
 			} catch (Exception e) {
 				mn = null;
 				System.out.println("muri");
