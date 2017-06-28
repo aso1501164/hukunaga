@@ -6,8 +6,8 @@
 			name="jdbc/MySQL"
 			type="javax.sql.DataSource"
 			url="jdbc:mysql://localhost/newyork"
-			username="jsb21"
-			password="jsb21"
+			username="jsb23"
+			password="jsb23"
 	/>
 
 </Context>
