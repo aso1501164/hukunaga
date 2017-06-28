@@ -9,6 +9,14 @@ public class Manager implements Serializable{
 	private String manager_name = "";
 	private String password = "";
 	private String permission = "";
+	private String class_name = "";
+
+	public String getClass_name() {
+		return class_name;
+	}
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
+	}
 	public String getManager_id() {
 		return manager_id;
 	}

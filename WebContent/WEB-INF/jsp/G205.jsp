@@ -1,9 +1,3 @@
-<%--
-name:情シ専3B22 福永利恵
-date:2017/06/09
-comm:科目編集画面（管理者用）
---%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common.jsp"%>
@@ -52,15 +46,7 @@ function submitChk() {
 		<div class="container">
 			<div class="col-sm-10">
 				<h1>科目一覧</h1>
-				<c:if test="${Permission == '0'}" var="flg" />
-				<c:if test="${flg}">
-					<!-- 権限が担任なら -->
-				</c:if>
-
-				<c:if test="${!flg}">
-					<!-- 権限が管理者なら -->
-					<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
-				</c:if>
+				<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
