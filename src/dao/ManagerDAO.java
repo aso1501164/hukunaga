@@ -85,6 +85,7 @@ public class ManagerDAO {
 				// DBから取得したデータをuserオブジェクトに格納
 				mn.setManager_id(rs.getString("manager_id"));
 				mn.setPassword(rs.getString("password"));
+				mn.setPermission(rs.getString("permission"));
 			} catch (Exception e) {
 				mn = null;
 				System.out.println("muri");
