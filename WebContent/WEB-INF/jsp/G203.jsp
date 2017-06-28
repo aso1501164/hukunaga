@@ -56,7 +56,7 @@ function submitChk() {
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
-						<table class="table table-bordered" cellpadding="0">
+						<table class="table table-bordered" bgcolor="#ffffff" cellpadding="0">
 							<tr>
 								<td class="active">分野名</td>
 								<td class="active">教科名</td>
@@ -65,14 +65,14 @@ function submitChk() {
 							</tr>
 							<tr>
 								<c:forEach var="su" items="${subject}" varStatus="status">
-									<td class="active"><c:out value="${su.classification_name}" /></td>
-									<td class="active"><c:out value="${su.subject_name}" /></td>
-									<td class="active"><a href="javascript:void(0);"
+									<td><c:out value="${su.classification_name}" /></td>
+									<td><c:out value="${su.subject_name}" /></td>
+									<td><a href="javascript:void(0);"
 										onclick="javascript:linkclick(${su.subject_id})">学生一覧</a></td>
 									<input type="hidden" name="subject_id" value="${su.subject_id}"
 										id="subject_id">
 									</form>
-									<td class="active">
+									<td>
 										<form name="deleteform" method="post" action="<%=request.getContextPath()%>/DeleteSeminarServlet" onsubmit="return submitChk()">
 											<button class="btn btn-danger" type='submit' name='delete' style="width: 90px" value='${su.subject_id}'>削除</button>
 										</form>
