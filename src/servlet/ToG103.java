@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +17,9 @@ import model.Application;
 import model.Subject;
 
 /**
- * Servlet implementation class ToG106
+ * Servlet implementation class ToG103
  */
+@WebServlet("/ToG103")
 public class ToG103 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +56,7 @@ public class ToG103 extends HttpServlet {
 		request.setAttribute("message", "現在登録情報はありません。");
 	}
 
-	RequestDispatcher rd = request.getRequestDispatcher("G103.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G103.jsp");
 	rd.forward(request, response);
 
 }
