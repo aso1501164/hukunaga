@@ -36,8 +36,8 @@ comm:ゼミ受講学生一覧表示
 		</tr>
 		<c:forEach var="su" items="${student}" varStatus="status">
 		<tr>
-				<td><c:out value="${su.class_name}" /></td>
-				<td><c:out value="${su.student_name}" /></td>
+				<td class="active"><c:out value="${su.class_name}" /></td>
+				<td class="active"><c:out value="${su.student_name}" /></td>
 		</tr>
 		</c:forEach>
 	</table>

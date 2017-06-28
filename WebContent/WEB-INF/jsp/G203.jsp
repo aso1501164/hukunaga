@@ -65,9 +65,9 @@ function submitChk() {
 							</tr>
 							<tr>
 								<c:forEach var="su" items="${subject}" varStatus="status">
-									<td><c:out value="${su.classification_name}" /></td>
-									<td><c:out value="${su.subject_name}" /></td>
-									<td><a href="javascript:void(0);"
+									<td class="active"><c:out value="${su.classification_name}" /></td>
+									<td class="active"><c:out value="${su.subject_name}" /></td>
+									<td class="active"><a href="javascript:void(0);"
 										onclick="javascript:linkclick(${su.subject_id})">学生一覧</a></td>
 									<input type="hidden" name="subject_id" value="${su.subject_id}"
 										id="subject_id">
