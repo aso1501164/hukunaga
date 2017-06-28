@@ -1,7 +1,7 @@
-//使わん
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,10 +50,6 @@ public class ManagerLoginServlet extends HttpServlet {
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
 
-		// 確認
-		System.out.println(userID);
-		System.out.println(password);
-
 		// ▼▼ログイン用処理▼▼
 		ManagerDAO managerDAO = new ManagerDAO();
 		Manager mn = new Manager();
@@ -65,21 +61,35 @@ public class ManagerLoginServlet extends HttpServlet {
 		// ログイン処理
 		String path = "";
 		if (mn != null) { // idとpassが一致したらG102に遷移
-			// セッションスコープにログインユーザー情報を保存(getsession「ManagerID」で先生のID呼べる)
+			// セッションスコープにログインユーザー情報を保存(getsession「ManagerID」で先生のIDと権限が呼べる)
 			session.setAttribute("ManagerID", mn.getManager_id());
-			//request.setAttribute("alart"," ok");
+			session.setAttribute("Permission", mn.getPermission());
+			System.out.println("権限："+mn.getPermission());
 			path = "WEB-INF/jsp/G203.jsp";
-			//request.setAttribute("alart", "ok");	//←これ動かんので直して
 
-			//ログインした先生の担当するゼミ教科の取得
 			SubjectDAO subjectDao = new SubjectDAO();
 			Subject subject = new Subject();
-			//キー値「subject」でG203へ渡す
-			request.setAttribute("subject",subjectDao.selectSubject(mn.getManager_id()));
+
+			if(mn.getPermission().equals("0")){	//権限が「０」（担任）なら
+				//キー値「subject」で担当する科目をG203へ渡す
+				request.setAttribute("subject",subjectDao.selectSubject(mn.getManager_id()));
+			}else if(mn.getPermission().equals("1")){	//権限が「1」（管理者）なら
+				//キー値「subject」ですべてのゼミ科目をG203へ渡す
+				request.setAttribute("subject",subjectDao.selectAllSubject());
+
+				List<Subject> list1 = subjectDao.selectAllSubject();
+				for(Subject list2 : list1){
+					System.out.println(list2.getSubject_id());
+					System.out.println(list2.getClassification_id());
+					System.out.println(list2.getSubject_name());
+					System.out.println(list2.getManeger_id());
+					System.out.println(list2.getClassification_name());
+				}
+			}
 
 		} else { // 不一致なら
-			request.setAttribute("alart"," no");
-			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
+			request.setAttribute("alert"," no");
+			path = "WEB-INF/jsp/G201.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
