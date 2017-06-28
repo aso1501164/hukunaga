@@ -208,4 +208,38 @@ import model.Student;
 				}
 			}
 		}
+
+		public ArrayList<Application> selectConfList(String student_id) {
+			// ログインユーザ情報を格納
+						ArrayList<Application> list = new ArrayList<Application>();
+						try {
+							// DB接続
+							connection();
+							// SQL文設定の準備・SQL文の実行
+							String sql = "SELECT * FROM application WHERE student_id = ?";
+
+							stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
+							// ユーザの入力値を代入
+							stmt.setString(1, student_id);
+							// sql文を実行
+							rs = stmt.executeQuery();
+
+							while (rs.next()) {
+								Application ap = new Application();
+								ap.setSubject_id_1(rs.getString("subject_id_1"));
+								ap.setSubject_id_2(rs.getString("subject_id_2"));
+								list.add(ap);
+							}
+						} catch (Exception e) {
+							Application ap = new Application();
+							ap = null;
+							System.out.println("受講者情報");
+							list.add(null);
+						} finally {
+							try {
+								close();
+							} catch (Exception e) {
+						}
+						}
+						return list;		}
 }

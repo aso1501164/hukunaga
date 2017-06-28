@@ -9,7 +9,6 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import model.Classfication;
 import model.Subject;
 
 public class SubjectDAO {
@@ -198,9 +197,37 @@ public class SubjectDAO {
 	}
 
 
-	public ArrayList<Classfication> setClassfication() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+
+
+	public ArrayList<Subject> allSelectList() {
+		ArrayList<Subject> list = new ArrayList<Subject>();
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT subject_name FROM subject";
+
+			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
+			// sql文を実行
+			rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Subject su = new Subject();
+				su.setSubject_name(rs.getString("subject_name"));
+				list.add(su);
+			}
+		} catch (Exception e) {
+			Subject su = new Subject();
+			su = null;
+			System.out.println("selectAllSubject : 失敗");
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+		}
+	}
+
+		return list;
 	}
 
 }

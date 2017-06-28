@@ -12,19 +12,15 @@
 	<p>以下の内容でよろしいでしょうか</p>
 	<form action="" method="post">
 		<div align="center">
-
-			<c:if test="${!empty Subject }">
-				<c:out value="・科目名：${Subject.subject1 }"></c:out>
-				<c:out value="・科目名：${Subject.subject2 }"></c:out>
-			</c:if>
+			<table border="1">
+					<c:out value="・科目名：${Subject.subject_name_1 }"></c:out>
+					<c:out value="・科目名：${Subject.subject_name_2 }"></c:out>
+			</table>
 
 		</div>
 
-		<c:if test="${empty Subject }">
-			<c:out value="${message }" />
-		</c:if>
-		<input type="button" Value="戻る" onClick="history.go(-1);">
-		<input type="submit" value="完了">
+		<input type="button" Value="戻る" onClick="history.go(-1);"> <input
+			type="submit" value="完了">
 	</form>
 </body>
 </html>

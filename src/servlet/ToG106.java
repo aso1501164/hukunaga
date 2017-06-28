@@ -33,7 +33,7 @@ public class ToG106 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String student_id = "0001" ;//(String)session.getAttribute("student_id");
+		String student_id = (String)session.getAttribute("loginStudentID");
 
 		HistoryDAO historyDAO = new HistoryDAO();
 		ArrayList<History> history = historyDAO.getHistory(student_id);
