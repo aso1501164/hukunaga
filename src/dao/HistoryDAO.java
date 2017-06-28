@@ -69,8 +69,8 @@ import model.History;
 				while (rs.next()) {
 					History history = new History();
 					history.setStudent_id(rs.getString("student_id"));
-					history.setSubject_id_1(rs.getString("subject_id_1"));
-					history.setSubject_id_2(rs.getString("subject_id_2"));
+					history.setSubject_name_1(rs.getString("subject_name_1"));
+					history.setSubject_name_2(rs.getString("subject_name_2"));
 					history.setYear(rs.getString("year"));
 					historyList.add(history);
 				}

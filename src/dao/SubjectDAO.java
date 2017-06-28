@@ -197,15 +197,10 @@ public class SubjectDAO {
 		}
 	}
 
-<<<<<<< HEAD
 
-
-}
-=======
 	public ArrayList<Classfication> setClassfication() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 
 }
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git

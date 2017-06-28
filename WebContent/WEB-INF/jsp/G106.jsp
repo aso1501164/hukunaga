@@ -16,11 +16,11 @@
 				<c:forEach var="history" items="${History }">
 				<tr>
 				<td><c:out value="${history.year }"></c:out></td>
-				<td><c:out value="・科目名：${history.subject_id_1 }"></c:out></td>
+				<td><c:out value="・科目名：${history.subject_name_1}"></c:out></td>
 				</tr>
 				<tr>
 				<td></td>
-				<td><c:out value="・科目名：${history.subject_id_2}"></c:out></td>
+				<td><c:out value="・科目名：${history.subject_name_2}"></c:out></td>
 				</tr>
 
 				</c:forEach>
