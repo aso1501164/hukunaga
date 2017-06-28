@@ -72,7 +72,7 @@ function submitChk() {
 									<input type="hidden" name="subject_id" value="${su.subject_id}"
 										id="subject_id">
 									</form>
-									<td>
+									<td class="active">
 										<form name="deleteform" method="post" action="<%=request.getContextPath()%>/DeleteSeminarServlet" onsubmit="return submitChk()">
 											<button class="btn btn-danger" type='submit' name='delete' style="width: 90px" value='${su.subject_id}'>削除</button>
 										</form>
