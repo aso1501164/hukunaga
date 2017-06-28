@@ -15,7 +15,7 @@ comm:ゼミ受講学生一覧表示
 <title>Insert title here</title>
 
 </head>
-<body>
+<body  class="bg-success">
 <c:if test="${Permission == '0'}" var="flg" />
 <c:if test="${flg}" ><!-- 権限が担任なら -->
 <jsp:include page="header_T.jsp"/>
@@ -36,8 +36,8 @@ comm:ゼミ受講学生一覧表示
 		</tr>
 		<c:forEach var="su" items="${student}" varStatus="status">
 		<tr>
-				<td><c:out value="${su.class_name}" /></td>
-				<td><c:out value="${su.student_name}" /></td>
+				<td class="active"><c:out value="${su.class_name}" /></td>
+				<td class="active"><c:out value="${su.student_name}" /></td>
 		</tr>
 		</c:forEach>
 	</table>

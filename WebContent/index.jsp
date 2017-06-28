@@ -11,16 +11,16 @@ comm:インデックスページ
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap.min.css" />
-<title>ゼミ受講システム機能一覧</title>
+<title>ゼミ受講システム</title>
 <script type="text/javascript">
 </script>
 </head>
 
-<body>
+<body  class="bg-success">
 <div class="center">
 	<div class="container">
 
-	<h1>ゼミ受講システム機能一覧</h1>
+	<h1>ゼミ受講システム</h1>
 	</div>
 	<div class="container">
 		<div class="col-sm-10">

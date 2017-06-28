@@ -18,7 +18,7 @@ comm:管理者ログインページ
 </script>
 </head>
 
-<body>
+<body  class="bg-success">
 <div class="center">
 <div class="container">
 	<h1>ログインページ（管理者用)</h1>
