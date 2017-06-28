@@ -11,7 +11,6 @@ public class Subject implements Serializable{
 	private String maneger_id = "";
 	private String classification_name = "";
 
-
 	public String getClassification_name() {
 		return classification_name;
 	}
