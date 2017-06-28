@@ -29,15 +29,15 @@ comm:ゼミ受講学生一覧表示
 <div class="container">
 	<div class="col-sm-10">
 	<h1><p class="text-primary"><c:out value="${subject_name}" />ゼミ受講学生一覧</p></h1>
-	<table class="table table-bordered" bgcolor="#ffffff" cellpadding="0">
+	<table class="table table-bordered" cellpadding="0">
 		<tr>
 			<td class="active">学部</td>
 			<td class="active">氏名</td>
 		</tr>
 		<c:forEach var="su" items="${student}" varStatus="status">
 		<tr>
-				<td><c:out value="${su.class_name}" /></td>
-				<td><c:out value="${su.student_name}" /></td>
+				<td bgcolor="#ffffff"><c:out value="${su.class_name}" /></td>
+				<td bgcolor="#ffffff"><c:out value="${su.student_name}" /></td>
 		</tr>
 		</c:forEach>
 	</table>
