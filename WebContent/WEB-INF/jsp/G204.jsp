@@ -11,7 +11,7 @@
 <body class="bg-success">
 <div class="container">
 
-	<h1>週間スケジュール</h1>
+	<h1>科目登録</h1>
 	<!--
 	<table>
 		<c:forEach var="su" items="${sessionScope.classification}" varStatus="status">
