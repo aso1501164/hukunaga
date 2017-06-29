@@ -168,6 +168,41 @@ public class SubjectDAO {
 		return subject_name;
 }
 
+//	/**
+//	 * 科目idから科目名を取得
+//*/
+//	public String selectSubject_id(String subject_name_1,String subject_name_2) {
+//		String subject_id_1 = "";
+//		String subject_id_2 = "";
+//		try {
+//			// DB接続
+//			connection();
+//			// SQL文設定の準備・SQL文の実行
+//			String sql = "SELECT subject_id FROM subject WHERE subject_name = ?;";
+//
+//			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
+//			// ユーザの入力値を代入
+//			stmt.setString(1, subject_id);
+//			// sql文を実行
+//			rs = stmt.executeQuery();
+//
+//			while (rs.next()) {
+//				subject_name = (rs.getString("subject_name"));
+//			}
+//		} catch (Exception e) {
+//			Subject su = new Subject();
+//			su = null;
+//			System.out.println("muri");
+//		} finally {
+//			try {
+//				close();
+//			} catch (Exception e) {
+//		}
+//	}
+//		return subject_name;
+//}
+
+
 	/**
 	 * Subjectテーブルの科目情報を削除
 	 */
@@ -206,7 +241,7 @@ public class SubjectDAO {
 			// DB接続
 			connection();
 			// SQL文設定の準備・SQL文の実行
-			String sql = "SELECT subject_nameFROM subject";
+			String sql = "SELECT subject_name , subjecgt_id FROM subject";
 
 			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 			// sql文を実行
@@ -215,6 +250,7 @@ public class SubjectDAO {
 			while (rs.next()) {
 				Subject su = new Subject();
 				su.setSubject_name(rs.getString("subject_name"));
+				su.setSubject_id(rs.getString("subject_id"));
 				list.add(su);
 			}
 		} catch (Exception e) {
