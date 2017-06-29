@@ -206,7 +206,7 @@ public class SubjectDAO {
 			// DB接続
 			connection();
 			// SQL文設定の準備・SQL文の実行
-			String sql = "SELECT subject_name FROM subject";
+			String sql = "SELECT subject_nameFROM subject";
 
 			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
 			// sql文を実行
