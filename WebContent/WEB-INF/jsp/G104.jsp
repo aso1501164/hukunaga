@@ -11,7 +11,7 @@
 <body>
    <c:if test="${empty ConfList}">
 	<hr>
-	<form action="Login" method="post">
+	<form action="ToG104" method="post">
 		 
 		<div align="center">
 		<div id="target" style="color: red;">
