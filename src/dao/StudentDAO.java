@@ -140,5 +140,46 @@ public class StudentDAO {
 	}
 		return list;
 }
+	/**
+	 *	その教科を受講する生徒をすべて検索
+*/
+	public List<Student> selectStudentRecord(String class_name) {
+		// ログインユーザ情報を格納
+		ArrayList<Student> list = new ArrayList<Student>();
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT * FROM `student` RIGHT OUTER JOIN `history` ON student.class_name = ? ;";
+
+			stmt = con.prepareStatement(sql);// sql文をプリコンパイルした状態で保持
+			// ユーザの入力値を代入
+			stmt.setString(1, class_name);
+			// sql文を実行
+			rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Subject su = new Subject();
+				// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
+				// DBから取得したデータをScheduleオブジェクトに格納
+
+				su.setSubject_id(rs.getString("seminar_id"));
+				su.setClassification_id(rs.getString("seminar_name"));
+				su.setSubject_name(rs.getString("seminar_kind"));
+				su.setManeger_id(rs.getString("teacher_id"));
+				//list.add(su);
+			}
+		} catch (Exception e) {
+			Subject su = new Subject();
+			su = null;
+			System.out.println("muri");
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+		}
+	}
+		return list;
+}
 }
 
