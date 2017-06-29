@@ -9,6 +9,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import model.Classfication;
 import model.Subject;
 
 public class SubjectDAO {
@@ -228,6 +229,66 @@ public class SubjectDAO {
 	}
 
 		return list;
+	}
+	 public List<Classfication> setClassfication(){
+	        ArrayList<Classfication> list = new ArrayList<Classfication>();
+	        try{
+	        connection();
+	        String sql ="SELECT * FROM classification ";
+	        stmt = con.prepareStatement(sql);
+	        rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            Classfication su = new Classfication();
+	            // DBから取得したデータをScheduleオブジェクトに格納
+	            su.setClassfication_id(rs.getString("classification_id"));
+	            su.setClassfication_name(rs.getString("classification_name"));
+	            list.add(su);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            close();
+	        } catch (Exception e) {
+	        }
+	    }
+	        return list ;
+	    }
+	    public Subject seRegistration(String classfication_id,String subject_name,String manager_id) {
+	        // ログインユーザ情報を格納
+	        Subject mna = new Subject();
+	        String a ="";
+	        int maxid ;
+	        try {
+	            // DB接続
+	            connection();
+	             //SQL文設定の準備・SQL文の実行
+	            String sql = "SELECT MAX(subject_id) FROM subject";
+	            stmt = con.prepareStatement(sql);
+	            rs = stmt.executeQuery();
+	            rs.next();
+	             a = (rs.getString("MAX(subject_id)"));
+	             maxid = Integer.parseInt(a);
+	             maxid += 1;
+	             String maxid2 = Integer.toString(maxid);
+	            String sql2 = "INSERT INTO subject VALUES(?,?,?,?)";
+	            stmt = con.prepareStatement(sql2);// sql文をプリコンパイルした状態で保持
+	            // ユーザの入力値を代入
+	            stmt.setString(1,maxid2);
+	            stmt.setString(2,classfication_id);
+	            stmt.setString(3,subject_name);
+	            stmt.setString(4,manager_id);
+	            stmt.executeUpdate();
+	            // DBから取得したデータをuserオブジェクトに格納
+	        } catch (Exception e) {
+	            System.out.println(e.getMessage());
+	        } finally {
+	            try {
+	                close();
+	            } catch (Exception e) {
+	        }
+	    }
+	        return mna;
 	}
 
 }
