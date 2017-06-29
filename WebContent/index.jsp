@@ -16,7 +16,7 @@ comm:インデックスページ
 </script>
 </head>
 
-<body  class="bg-success">
+<body  background="img/140704wall1b.jpg">
 <div class="center">
 	<div class="container">
 

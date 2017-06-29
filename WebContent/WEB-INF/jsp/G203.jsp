@@ -52,15 +52,6 @@ function submitChk() {
 		<div class="container">
 			<div class="col-sm-10">
 				<h1>科目一覧</h1>
-				<c:if test="${Permission == '0'}" var="flg" />
-				<c:if test="${flg}">
-					<!-- 権限が担任なら -->
-				</c:if>
-
-				<c:if test="${!flg}">
-					<!-- 権限が管理者なら -->
-					<a href="<%=request.getContextPath()%>/ToG204">科目登録</a>
-				</c:if>
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">

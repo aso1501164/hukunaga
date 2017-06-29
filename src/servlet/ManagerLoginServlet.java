@@ -64,7 +64,7 @@ public class ManagerLoginServlet extends HttpServlet {
 			// セッションスコープにログインユーザー情報を保存(getsession「ManagerID」で先生のIDと権限が呼べる)
 			session.setAttribute("ManagerID", mn.getManager_id());
 			session.setAttribute("Permission", mn.getPermission());
-			session.setAttribute("Permission", mn.getClass_name());
+			session.setAttribute("class_name", mn.getClass_name());
 			System.out.println("権限："+mn.getPermission());
 			path = "WEB-INF/jsp/G203.jsp";
 
