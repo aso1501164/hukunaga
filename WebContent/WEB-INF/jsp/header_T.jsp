@@ -18,8 +18,8 @@ comm:担任用header
 <div class="row">
 <br>
 <div class="col-md-8"></div>
-<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/ShowRecordServlet"><input type="submit" value="成績編集" style="width: 90px"></form></div>
-<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/Logout"><input type="submit" value="ログアウト" style="width: 90px"></form></div>
+<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/ShowRecordServlet"><button class="btn btn-default" type="submit" style="width: 90px">成績編集</button></form></div>
+<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/Logout"><button class="btn btn-default" type="submit" style="width: 90px">ログアウト</button></form></div>
 </div>
 </div>
 </body>
