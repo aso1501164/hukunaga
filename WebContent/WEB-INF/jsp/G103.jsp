@@ -23,7 +23,9 @@
 					<td>                           
 					<select name="subject_1">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
-					<option><c:out value="${allselectlist.subject_name }"></c:out></option>
+					<option><c:out value="${allselectlist.subject_name }"></c:out>
+							<c:out type="hidden" value="${allselectlist.subject_id }"></c:out>
+					</option>
 					</c:forEach>
 					</select>
 					</td>
@@ -35,7 +37,9 @@
 					<td>                           
 					<select name="subjecgt_2">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
-					<option><c:out value="${allselectlist.subject_name }"></c:out></option>
+					<option><c:out value="${allselectlist.subject_name }"></c:out>
+							<c:out type="hidden" value="${allselectlist.subject_id }"></c:out>
+					</option>
 					</c:forEach>
 					</select>               
 					</td>
