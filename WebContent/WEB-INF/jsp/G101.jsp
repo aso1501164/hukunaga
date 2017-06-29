@@ -18,7 +18,7 @@ comm:生徒用ログインページ
 </script>
 </head>
 
-<body>
+<body background="img/140704wall1b.jpg">
 <div class="container">
 
 	<h1>ログインページ（学生用）</h1>
