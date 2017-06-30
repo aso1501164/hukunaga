@@ -11,6 +11,29 @@ comm:科目編集画面（管理者用）
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+h1 {
+	position: relative;
+	width:500px;
+	padding: .5em .75em;
+	background-color: #f0f0f0;
+	border-radius: 6px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+    background-color: rgba( 255, 255, 255, 0.6 );
+    color: #000000;
+}
+h1::after {
+
+	position: absolute;
+	top: 100%;
+	left: 30px;
+	content: '';
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top: 15px solid #f0f0f0;
+}
+</style>
 <link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -37,7 +60,7 @@ function submitChk() {
 
 </script>
 </head>
-<body  class="bg-success">
+<body  background="img/wall6b.jpg">
 	<c:if test="${Permission == '0'}" var="flg" />
 	<c:if test="${flg}">
 		<!-- 権限が担任なら -->

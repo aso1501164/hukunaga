@@ -13,7 +13,7 @@ comm:担任用header
 <title>Insert title here</title>
 <link rel="stylesheet" href="bootstrap.min.css" />
 </head>
-<body  class="bg-success">
+<body background="img/wall6b.jpg">
 <div class="container">
 <div class="row">
 <br>

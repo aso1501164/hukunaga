@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap.min.css" />
 <title>科目登録</title>
 </head>
-<body class="bg-success">
+<body background="img/wall6b.jpg">
 <div class="container">
 
 <h1>週間スケジュール</h1><!--

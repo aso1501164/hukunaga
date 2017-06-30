@@ -15,7 +15,7 @@ comm:ゼミ受講学生一覧表示
 <title>Insert title here</title>
 
 </head>
-<body  class="bg-success">
+<body  background="img/wall6b.jpg">
 <c:if test="${Permission == '0'}" var="flg" />
 <c:if test="${flg}" ><!-- 権限が担任なら -->
 <jsp:include page="header_T.jsp"/>

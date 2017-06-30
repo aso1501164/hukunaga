@@ -31,7 +31,7 @@ function submitChk() {
 
 </script>
 </head>
-<body  class="bg-success">
+<body background="img/wall6b.jpg">
 	<c:if test="${Permission == '0'}" var="flg" />
 	<c:if test="${flg}">
 		<!-- 権限が担任なら -->

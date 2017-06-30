@@ -1,9 +1,8 @@
 <!-- スタイルシートです自由に追記してください
 		<link rel="stylesheet" href="Style.css">でインポート　
 -->
-.center{
-  display: inline-block;
-  text-align: center;
-  margin-right: auto;
-  margin-left : auto;
+h1 {
+	padding: .5em .75em;
+	background-color: #f6f6f6;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
 }
