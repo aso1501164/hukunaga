@@ -13,12 +13,11 @@ comm:担任用header
 <title>Insert title here</title>
 <link rel="stylesheet" href="bootstrap.min.css" />
 </head>
-<body  class="bg-success">
+<body  background="img/wall6b.jpg">
 <div class="container">
 <div class="row">
 <br>
-<div class="col-md-8"></div>
-<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/ShowRecordServlet"><button class="btn btn-default" type="submit" style="width: 90px">成績編集</button></form></div>
+<div class="col-md-10"></div>
 <div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/Logout"><button class="btn btn-default" type="submit" style="width: 90px">ログアウト</button></form></div>
 </div>
 </div>

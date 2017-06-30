@@ -55,6 +55,7 @@ public class DeleteSeminarServlet extends HttpServlet {
 		// HttpServletRequestからHttpSessionを取得
 		HttpSession session = request.getSession();
 		String ManagerID = (String) session.getAttribute("ManagerID");
+		String Permission = (String) session.getAttribute("Permission");
 
 		// ゼミ科目を削除する
 		SubjectDAO subjectDao = new SubjectDAO();
@@ -62,9 +63,12 @@ public class DeleteSeminarServlet extends HttpServlet {
 
 		System.out.println("delete:" + subject_id);
 
+		if(Permission.equals("1")){
+			request.setAttribute("subject",subjectDao.selectAllSubject());
+		}else if(Permission.equals("0")){
 		//キー値「subject」でG203へ渡す
 		request.setAttribute("subject",subjectDao.selectSubject(ManagerID));
-
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
 		rd.forward(request, response);

@@ -11,6 +11,18 @@ comm:科目編集画面（管理者用）
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+h1 {
+	position: relative;
+	width:500px;
+	padding: .5em .75em;
+	background-color: #f0f0f0;
+	border-radius: 6px;
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, .1) inset;
+    background-color: rgba( 255, 255, 255, 0.6 );
+    color: #000000;
+}
+</style>
 <link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -37,7 +49,7 @@ function submitChk() {
 
 </script>
 </head>
-<body  class="bg-success">
+<body  background="img/wall6b.jpg">
 	<c:if test="${Permission == '0'}" var="flg" />
 	<c:if test="${flg}">
 		<!-- 権限が担任なら -->
@@ -51,7 +63,7 @@ function submitChk() {
 	<div class="center">
 		<div class="container">
 			<div class="col-sm-10">
-				<h1>科目一覧</h1>
+				<h1><font color="#555555">科目一覧</font></h1>
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
