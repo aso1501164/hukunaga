@@ -15,7 +15,7 @@ import dao.ApplicationDAO;
 /**
  * Servlet implementation class Registration
  */
-@WebServlet("/Registration")
+@WebServlet("/ChangeSubject")
 public class ChangeSubject extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
