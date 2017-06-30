@@ -16,9 +16,9 @@
 	<th>申込科目2</th>
 </tr>
 
-	<td><c:out value="${conf.student_id}" /></td>
-	<td><c:out value="${conf.subject_name_1}" /></td>
-	<td><c:out value="${conf.subject_name_2}" /></td>
+	<td><c:out value="${ConfList.student_id}" /></td>
+	<td><c:out value="${ConfList.subject_name_1}" /></td>
+	<td><c:out value="${ConfList.subject_name_2}" /></td>
 
 
 </table>
