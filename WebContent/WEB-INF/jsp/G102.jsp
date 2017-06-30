@@ -14,10 +14,10 @@
 	<th>申込科目1</th>
 	<th>申込科目2</th>
 </tr>
-<c:forEach var="application" items="${applications}" varStatus="status">
-	<td><c:out value="${application.student_id}" /></td>
-	<td><c:out value="${application.subject_name_1}" /></td>				
-	<td><c:out value="${application.subject_name_2}" /></td>
+<c:forEach var="application" items="${ConfList}" varStatus="status">
+	<td><c:out value="${status.student_id}" /></td>
+	<td><c:out value="${status.subject_name_1}" /></td>
+	<td><c:out value="${status.subject_name_2}" /></td>
 </c:forEach>
 </table>
 <form action="<%=request.getContextPath()%>/ToG106" method="post">
