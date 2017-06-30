@@ -83,7 +83,7 @@ public class StudentLoginServlet extends HttpServlet {
 			ArrayList<Application> confList = applicationDAO.selectConfList(student_id);
 			request.setAttribute("ConfList", confList);
 
-
+//
 
 			path = "WEB-INF/jsp/G102.jsp";
 
