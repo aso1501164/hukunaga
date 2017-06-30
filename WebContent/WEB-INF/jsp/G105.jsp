@@ -9,6 +9,7 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body background="img/140704wall1b.jpg">
+<jsp:include page="Gheader.jsp"/>
 	<p>以下の内容でよろしいでしょうか</p>
 	<form action="" method="post">
 		<div align="center">

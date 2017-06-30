@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
 <c:forEach var="application" items="${applications}" varStatus="status">
 <table border="1" align="center">
 			<tr>
