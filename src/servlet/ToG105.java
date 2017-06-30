@@ -51,7 +51,7 @@ public class ToG105 extends HttpServlet {
 //         applicatioinDAO.InsertApplication(student_id,subject_id_1,subject_id_2);
 
          //G105に表示するためにリクエストスコープに格納
-
+//dga
          RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G105.jsp");
          rd.forward(request, response);
 
