@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ include file="/WEB-INF/jsp/common.jsp"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/common.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,28 +8,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="Gheader.jsp"/>
-<c:forEach var="application" items="${applications}" varStatus="status">
-<table border="1" align="center">
-			<tr>
-				<td>ユーザーID</td>
-				<td><c:out value="${application.student_id}" /></td>
-			</tr>
-			<tr>
-				<td>申込科目1</td>
-				<td><c:out value="${application.subject_name_1}" /></td>
-			</tr>
-			<tr>
-				<td>申込科目2</td>
-				<td><c:out value="${application.subject_name_2}" /></td>
-			</tr>
-		</table>
-		</c:forEach>
-<form action="<%=request.getContextPath()%>/ToG106" method="post">
-<input type="submit" value="G106">
-</form>
-<form action="<%=request.getContextPath()%>/ToG103" method="post">
-<input type="submit" value="G103">
-</form>
+	<jsp:include page="Gheader.jsp" />
+
+	<div class="conter">
+		<div class="container">
+			<c:forEach var="application" items="${applications}"
+				varStatus="status">
+				<table border="1" align="center">
+					<tr>
+						<td>ユーザーID</td>
+						<td><c:out value="${application.student_id}" /></td>
+					</tr>
+					<tr>
+						<td>申込科目1</td>
+						<td><c:out value="${application.subject_name_1}" /></td>
+					</tr>
+					<tr>
+						<td>申込科目2</td>
+						<td><c:out value="${application.subject_name_2}" /></td>
+					</tr>
+				</table>
+			</c:forEach>
+			<form action="<%=request.getContextPath()%>/ToG106" method="post">
+				<input type="submit" value="G106">
+			</form>
+			<form action="<%=request.getContextPath()%>/ToG103" method="post">
+				<input type="submit" value="G103">
+			</form>
+		</div>
+	</div>
 </body>
 </html>
