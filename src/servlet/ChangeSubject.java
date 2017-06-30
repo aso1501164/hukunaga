@@ -15,7 +15,11 @@ import dao.ApplicationDAO;
 /**
  * Servlet implementation class Registration
  */
+<<<<<<< HEAD
 @WebServlet("/ChangesSubject")
+=======
+@WebServlet("/ChangeSubject")
+>>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 public class ChangeSubject extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

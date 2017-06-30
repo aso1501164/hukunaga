@@ -9,6 +9,7 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
    <c:if test="${empty ConfList}">
 	<hr>
 	<form action="ToG105" method="post">

@@ -9,6 +9,7 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<jsp:include page="Gheader.jsp"/>
 	<h1>履修履歴</h1>
 	<div align="center">
 		<table border=1>
