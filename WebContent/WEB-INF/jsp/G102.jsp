@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
 <table border="1">
 <tr>
 	<th>ユーザID</th>
@@ -27,36 +26,5 @@
 <form action="<%=request.getContextPath()%>/ToG103" method="post">
 <input type="submit" value="G103">
 </form>
-=======
-	<jsp:include page="Gheader.jsp" />
-
-	<div class="conter">
-		<div class="container">
-			<c:forEach var="application" items="${applications}"
-				varStatus="status">
-				<table border="1" align="center">
-					<tr>
-						<td>ユーザーID</td>
-						<td><c:out value="${application.student_id}" /></td>
-					</tr>
-					<tr>
-						<td>申込科目1</td>
-						<td><c:out value="${application.subject_name_1}" /></td>
-					</tr>
-					<tr>
-						<td>申込科目2</td>
-						<td><c:out value="${application.subject_name_2}" /></td>
-					</tr>
-				</table>
-			</c:forEach>
-			<form action="<%=request.getContextPath()%>/ToG106" method="post">
-				<input type="submit" value="G106">
-			</form>
-			<form action="<%=request.getContextPath()%>/ToG103" method="post">
-				<input type="submit" value="G103">
-			</form>
-		</div>
-	</div>
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 </body>
 </html>
