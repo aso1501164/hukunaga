@@ -242,4 +242,49 @@ import model.Student;
 						}
 						}
 						return list;		}
+		
+		
+		//G102
+				public ArrayList<Application> getApplicationsByStudentId(String studentId){
+
+					ArrayList<Application> applications = new ArrayList<Application>();
+
+					try{
+						//DB接続
+						connection();
+
+						//
+						String sql = "SELECT application.student_id, application.subject_name_1, application.subject_name_2 "
+								+ " FROM application "
+								+ "WHERE application.student_id = ? AND application.subject_name_1 = ? AND application.subject_name_2 = ?";
+						stmt = con.prepareStatement(sql);
+						stmt.setString(1, studentId);
+						rs = stmt.executeQuery();
+
+
+						//取得したデータ1件1件をモデルproductに格納する。productは上で宣言したproductsに格納する
+						while (rs.next()){
+							Application application = new Application();
+
+							//
+							application.setStudent_id(rs.getString("student_id"));
+							application.setSubject_name_1(rs.getString("subject_name_1"));
+							application.setSubject_name_2(rs.getString("subject_name_2"));
+
+							//
+							applications.add(application);
+
+						}
+
+					}catch (Exception e){
+
+					}finally {
+						try{
+							close();
+						}catch (Exception e){
+
+						}
+					}
+					return applications;
+				}
 }
