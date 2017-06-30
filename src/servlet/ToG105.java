@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ApplicationDAO;
-
 /**
  * Servlet implementation class Registration
  */
@@ -49,13 +47,10 @@ public class ToG105 extends HttpServlet {
          String subject_id_1 = request.getParameter("subject_1");
          String subject_id_2 = request.getParameter("subject_2");
 
-         ApplicationDAO applicatioinDAO = new ApplicationDAO();
-         applicatioinDAO.InsertApplication(student_id,subject_id_1,subject_id_2);
-
-
+//         ApplicationDAO applicatioinDAO = new ApplicationDAO();
+//         applicatioinDAO.InsertApplication(student_id,subject_id_1,subject_id_2);
 
          //G105に表示するためにリクエストスコープに格納
-         request.setAttribute("subject_id_1",subject_id_1 subject_id_2);
 
          RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G105.jsp");
          rd.forward(request, response);
