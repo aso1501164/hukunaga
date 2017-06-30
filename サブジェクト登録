@@ -1,0 +1,54 @@
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        //doGet(request, response);
+
+
+    	HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        String classfication_id = request.getParameter("classfication");
+        String subject_name = request.getParameter("subject_name");
+        String  manager_id = request.getParameter("manager_id");
+
+
+        System.out.println(classfication_id);
+        System.out.println(subject_name);
+        System.out.println(manager_id);
+
+
+
+        SubjectDAO subjectDao = new SubjectDAO();
+        Subject mna = new Subject();
+
+        ManagerDAO managerDao=new ManagerDAO();
+        Manager mn = new Manager();
+
+        mn =managerDao.managerPointer(manager_id);
+
+        if(mn == null){
+        	System.out.println("先生IDがない");
+        	RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G204.jsp");
+  	        rd.forward(request, response);
+        }else{
+        	  mna = subjectDao.seRegistration(classfication_id,subject_name,manager_id);
+        	  String teacher_id = (String)session.getAttribute("ManagerID");
+              String permission=(String)session.getAttribute("Permission");
+              System.out.println(teacher_id);
+              if(permission.equals("0")){	//権限が「０」（担任）なら
+      			//キー値「subject」で担当する科目をG203へ渡す
+      			request.setAttribute("subject",subjectDao.selectSubject(teacher_id));
+      		}else if(permission.equals("1")){	//権限が「1」（管理者）なら
+      			//キー値「subject」ですべてのゼミ科目をG203へ渡す
+      			request.setAttribute("subject",subjectDao.selectAllSubject());
+
+      			List<Subject> list1 = subjectDao.selectAllSubject();
+      			for(Subject list2 : list1){
+      				System.out.println(list2.getSubject_id());
+      				System.out.println(list2.getClassification_id());
+      				System.out.println(list2.getSubject_name());
+      				System.out.println(list2.getManeger_id());
+      				System.out.println(list2.getClassification_name());
+      			  RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G203.jsp");
+      	        rd.forward(request, response);
+      			}
+      		}
+        }

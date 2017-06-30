@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body background="img/140704wall1b.jpg">
    <c:if test="${!empty ConfList}">
 	<hr>
 	<form action="ToG103" method="post">
