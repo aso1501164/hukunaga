@@ -11,6 +11,17 @@ comm:ゼミ受講学生一覧表示
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+h1 {
+	position: relative;
+	padding: .5em .75em;
+	background-color: #f0f0f0;
+	border-radius: 6px;
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, .1) inset;
+    background-color: rgba( 255, 255, 255, 0.6 );
+    color: #000000;
+}
+</style>
 <link rel="stylesheet" href="bootstrap.min.css" />
 <title>Insert title here</title>
 
@@ -28,7 +39,7 @@ comm:ゼミ受講学生一覧表示
 
 <div class="container">
 	<div class="col-sm-10">
-	<h1><p class="text-primary"><c:out value="${subject_name}" />ゼミ受講学生一覧</p></h1>
+	<h1><font color="#555555"><c:out value="${subject_name}" />ゼミ受講学生一覧</font></h1>
 	<table class="table table-bordered" cellpadding="0">
 		<tr>
 			<td class="active">学部</td>
