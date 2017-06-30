@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ApplicationDAO;
 import dao.StudentDAO;
+import model.Application;
 import model.Student;
 
 /**
@@ -35,6 +38,16 @@ public class StudentLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		// リクエストパラメータの取得
+		ApplicationDAO applicationDAO = new ApplicationDAO();
+
+		String studentId = request.getParameter("application");
+
+		ArrayList<Application> applications = applicationDAO.getApplicationsByStudentId(studentId);
+
+		request.setAttribute("applications", applications);
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G102.jsp");
+		rd.forward(request, response);
 
 	}
 
@@ -69,6 +82,8 @@ public class StudentLoginServlet extends HttpServlet {
 			//request.setAttribute("alart"," ok");
 			path = "WEB-INF/jsp/G102.jsp";
 			//request.setAttribute("alart", "ok");	//←これ動かんので直して
+			
+			
 		} else { // 不一致なら
 			request.setAttribute("alart"," no");
 			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください

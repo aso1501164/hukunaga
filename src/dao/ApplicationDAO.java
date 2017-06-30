@@ -254,15 +254,15 @@ import model.Student;
 						connection();
 
 						//
-						String sql = "SELECT application.student_id, application.subject_name_1, application.subject_name_2 "
+						String sql = "SELECT student_id, subject_name_1, subject_name_2 "
 								+ " FROM application "
-								+ "WHERE application.student_id = ? AND application.subject_name_1 = ? AND application.subject_name_2 = ?";
+								+ "WHERE student_id = ? AND subject_name_1 = ? AND subject_name_2 = ?";
 						stmt = con.prepareStatement(sql);
 						stmt.setString(1, studentId);
 						rs = stmt.executeQuery();
 
 
-						//取得したデータ1件1件をモデルproductに格納する。productは上で宣言したproductsに格納する
+						//取得したデータ1件1件をモデルに格納する
 						while (rs.next()){
 							Application application = new Application();
 
