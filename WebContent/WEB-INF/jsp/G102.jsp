@@ -9,7 +9,7 @@
 </head>
 <body>
 <c:forEach var="application" items="${applications}" varStatus="status">
-<table border="1">
+<table border="1" align="center">
 			<tr>
 				<td>ユーザーID</td>
 				<td><c:out value="${application.student_id}" /></td>
