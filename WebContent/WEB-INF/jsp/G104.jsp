@@ -33,7 +33,7 @@
 
 					<th>選択2</th>
 					<td>                           
-					<select name="subjecgt_2">
+					<select name="subject_2">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
 					<option><c:out value="${allselectlist.subject_name }"></c:out></option>
 					</c:forEach>
@@ -53,10 +53,6 @@
 		 
 	</form>
 </c:if>
-<c:if test="${!empty ConfList}">
-	<c:out value="${message}"/>
-</c:if>
-<input type="button" Values="戻る" onClic="history.go(-1);">
 
 </body>
 </html>

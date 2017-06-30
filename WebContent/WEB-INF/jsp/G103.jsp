@@ -11,7 +11,7 @@
 <body background="img/140704wall1b.jpg">
    <c:if test="${!empty ConfList}">
 	<hr>
-	<form action="ToG103" method="post">
+	<form action="ChangeSubject" method="post">
 		 
 		<div align="center">
 		<div id="target" style="color: red;">
@@ -34,7 +34,7 @@
 
 					<th>選択2</th>
 					<td>                           
-					<select name="subjecgt_2">
+					<select name="subject_2">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
 					<option><c:out value="${allselectlist.subject_name }"></c:out>
 					</option>

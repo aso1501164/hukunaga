@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,8 +44,13 @@ public class ToG105 extends HttpServlet {
     	 String student_id = (String)session.getAttribute("loginStudentID");
 
          request.setCharacterEncoding("UTF-8");
-         String subject_id_1 = request.getParameter("subject_1");
-         String subject_id_2 = request.getParameter("subject_2");
+         String subject_name_1 = request.getParameter("subject_1");
+         String subject_name_2 = request.getParameter("subject_2");
+         String[] ary = {subject_name_1,subject_name_2};
+         session.setAttribute("Subjects", ary);
+
+
+
 
 //         ApplicationDAO applicatioinDAO = new ApplicationDAO();
 //         applicatioinDAO.InsertApplication(student_id,subject_id_1,subject_id_2);

@@ -10,11 +10,11 @@
 </head>
 <body background="img/140704wall1b.jpg">
 	<p>以下の内容でよろしいでしょうか</p>
-	<form action="" method="post">
+	<form action="InsertSubject" method="post">
 		<div align="center">
 			<table border="1">
-					<c:out value="・科目名：${Subject.subject_name_1 }"></c:out>
-					<c:out value="・科目名：${Subject.subject_name_2 }"></c:out>
+					<c:out value="・科目名：${Subjects[0]}"></c:out>
+					<c:out value="・科目名：${Subjects[1]}"></c:out>
 			</table>
 
 		</div>

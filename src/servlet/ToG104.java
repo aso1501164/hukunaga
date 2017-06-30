@@ -35,7 +35,7 @@ public class ToG104 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		String path;
 	//登録情報持ってくるDAO
 	HttpSession session = request.getSession();
 	String student_id = (String)session.getAttribute("loginStudentID");
@@ -49,16 +49,15 @@ public class ToG104 extends HttpServlet {
 	ArrayList<Subject> allSelect = subjectDAO.allSelectList();
 	request.setAttribute("AllSelectList", allSelect);
 
-
-
-
-
-	if(confList.size() == 0){
-		// 登録情報がなかった場合はリクエストスコープへメッセージを格納する。
-		request.setAttribute("message", "現在登録情報はありません。");
+	if(confList.size() != 0){
+		// 登録情報があった場合はリクエストスコープへメッセージを格納する。
+		request.setAttribute("message", "すでに登録済みです。");
+		path = "WEB-INF/jsp/G102.jsp";
+	}else{
+		path = "WEB-INF/jsp/G104.jsp";
 	}
 
-	RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G103.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher(path);
 	rd.forward(request, response);
 
 }
