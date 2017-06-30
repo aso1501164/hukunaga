@@ -18,20 +18,9 @@ h1 {
 	padding: .5em .75em;
 	background-color: #f0f0f0;
 	border-radius: 6px;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, .1) inset;
     background-color: rgba( 255, 255, 255, 0.6 );
     color: #000000;
-}
-h1::after {
-
-	position: absolute;
-	top: 100%;
-	left: 30px;
-	content: '';
-	width: 0;
-	height: 0;
-	border: 10px solid transparent;
-	border-top: 15px solid #f0f0f0;
 }
 </style>
 <link rel="stylesheet" href="bootstrap.min.css" />
@@ -74,7 +63,7 @@ function submitChk() {
 	<div class="center">
 		<div class="container">
 			<div class="col-sm-10">
-				<h1>科目一覧</h1>
+				<h1><font color="#555555">科目一覧</font></h1>
 				<div class="form-group">
 					<%-- seminar_idを伴ってStudentListServletに遷移 --%>
 					<form name="formA" method="post" action="<%=request.getContextPath()%>/StudentListServlet">
