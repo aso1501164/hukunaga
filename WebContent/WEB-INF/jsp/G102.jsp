@@ -8,18 +8,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <table border="1">
 <tr>
 	<th>ユーザID</th>
 	<th>申込科目1</th>
 	<th>申込科目2</th>
 </tr>
-<c:forEach var="application" items="${ConfList}" varStatus="status">
-	<td><c:out value="${status.student_id}" /></td>
-	<td><c:out value="${status.subject_name_1}" /></td>
-	<td><c:out value="${status.subject_name_2}" /></td>
-</c:forEach>
+
+	<td><c:out value="${conf.student_id}" /></td>
+	<td><c:out value="${conf.subject_name_1}" /></td>
+	<td><c:out value="${conf.subject_name_2}" /></td>
+
+
 </table>
+
 <form action="<%=request.getContextPath()%>/ToG106" method="post">
 <input type="submit" value="G106">
 </form>
