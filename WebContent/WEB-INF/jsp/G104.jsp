@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body background="img/140704wall1b.jpg">
-   <c:if test="${!empty ConfList}">
+<body>
+   <c:if test="${empty ConfList}">
 	<hr>
-	<form action="ToG103" method="post">
+	<form action="ToG105" method="post">
 		 
 		<div align="center">
 		<div id="target" style="color: red;">
@@ -23,8 +23,7 @@
 					<td>                           
 					<select name="subject_1">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
-					<option><c:out value="${allselectlist.subject_name }"></c:out>
-					</option>
+					<option><c:out value="${allselectlist.subject_name }"></c:out></option>
 					</c:forEach>
 					</select>
 					</td>
@@ -36,17 +35,16 @@
 					<td>                           
 					<select name="subjecgt_2">
 					<c:forEach begin="0" items="${AllSelectList}" var="allselectlist">
-					<option><c:out value="${allselectlist.subject_name }"></c:out>
-					</option>
+					<option><c:out value="${allselectlist.subject_name }"></c:out></option>
 					</c:forEach>
-					</select>
+					</select>               
 					</td>
 					</tr>
 
 				<tr>
 				<td colspan="2">
 						<center>
-						 <input type="submit" value="変更">
+						 <input type="submit" value="申込">
 						</center>                        
 				</td>
 				</tr>
@@ -55,7 +53,7 @@
 		 
 	</form>
 </c:if>
-<c:if test="${empty ConfList}">
+<c:if test="${!empty ConfList}">
 	<c:out value="${message}"/>
 </c:if>
 <input type="button" Values="戻る" onClic="history.go(-1);">

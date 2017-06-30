@@ -155,7 +155,7 @@ import model.Student;
 				// DB接続
 				connection();
 
-				String sql = "UPDATE application SET subject1 = ? subject2 = ? WHERE student_id = ? ;";
+				String sql = "UPDATE application SET subject_id_1 = ? subject_id_2 = ? WHERE student_id = ? ;";
 
 				stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
 				stmt.setString(1, student_id);
