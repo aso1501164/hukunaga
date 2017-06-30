@@ -18,7 +18,7 @@ comm:生徒用ヘッダー
 <div class="row">
 <br>
 <div class="col-md-10"></div>
-<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/Logout"><input type="submit" value="ログアウト" style="width: 90px"></form></div>
+<div class="col-md-2"><form name="logout" method="post" action="<%=request.getContextPath()%>/Logout"><button class="btn btn-default" type="submit" style="width: 90px">ログアウト</button></form></div>
 </div>
 </div>
 </body>
