@@ -31,7 +31,7 @@ comm:生徒用ログインページ
 				<label>ユーザーID</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="text" name="userID" class="form-control" placeholder="ユーザーID">
+						<input type="text" name="student_id" class="form-control" placeholder="ユーザーID">
 					</div>
 				</div>
 			</div>

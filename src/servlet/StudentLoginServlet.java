@@ -38,16 +38,16 @@ public class StudentLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		// リクエストパラメータの取得
-		ApplicationDAO applicationDAO = new ApplicationDAO();
-
-		String studentId = request.getParameter("application");
-
-		ArrayList<Application> applications = applicationDAO.getApplicationsByStudentId(studentId);
-
-		request.setAttribute("applications", applications);
-
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G102.jsp");
-		rd.forward(request, response);
+//		ApplicationDAO applicationDAO = new ApplicationDAO();
+//
+//		String studentId = request.getParameter("application");
+//
+//		ArrayList<Application> applications = applicationDAO.getApplicationsByStudentId(studentId);
+//
+//		request.setAttribute("applications", applications);
+//
+//		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/G102.jsp");
+//		rd.forward(request, response);
 
 	}
 
@@ -58,11 +58,12 @@ public class StudentLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
-		String userID = request.getParameter("userID");
+		String student_id = request.getParameter("student_id");
 		String password = request.getParameter("password");
+		String path = "";
 
 		// 確認
-		System.out.println(userID);
+		System.out.println(student_id);
 		System.out.println(password);
 
 		// ▼▼ログイン用処理▼▼
@@ -70,22 +71,25 @@ public class StudentLoginServlet extends HttpServlet {
 		Student st = new Student();
 
 		// ログインユーザー情報を探す
-		st = studentDAO.selectLoginStudent(userID, password);
+		st = studentDAO.selectLoginStudent(student_id, password);
 		HttpSession session = request.getSession();
 
 		// ログイン処理
-		String path = "";
+
 		if (st != null) { // idとpassが一致したらG102に遷移
-			path = "WEB-INF/jsp/G102.jsp";
-			// セッションスコープにログインユーザー情報を保存(getsession「loginStudentID」でいつでも生徒のID呼べるよ)
 			session.setAttribute("loginStudentID", st.getStudent_id());
-			//request.setAttribute("alart"," ok");
+			// セッションスコープにログインユーザー情報を保存(getsession「loginStudentID」でいつでも生徒のID呼べるよ)
+			ApplicationDAO applicationDAO = new ApplicationDAO();
+			ArrayList<Application> confList = applicationDAO.selectConfList(student_id);
+			request.setAttribute("ConfList", confList);
+
+
+
 			path = "WEB-INF/jsp/G102.jsp";
-			//request.setAttribute("alart", "ok");	//←これ動かんので直して
-			
-			
+
 		} else { // 不一致なら
-			request.setAttribute("alart"," no");
+			System.out.println("ログイン失敗");
+			request.setAttribute("errorMessage", "会員IDまたはパスワードが違います。");
 			path = "WEB-INF/jsp/G101.jsp";	//できたらエラーページ作るとかアラート鳴らすとかしてください
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(path);
