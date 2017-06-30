@@ -81,8 +81,9 @@ import model.Student;
 					Application ap = new Application();
 					// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
 					// DBから取得したデータをScheduleオブジェクトに格納
-					ap.setSubject_id_1(rs.getString("subject_id_1"));
-					ap.setSubject_id_2(rs.getString("subject_id_2"));
+					ap.setStudent_id(rs.getString("student_id"));
+					ap.setSubject_name_1(rs.getString("subject_name_1"));
+					ap.setSubject_name_2(rs.getString("subject_name_2"));
 					list.add(ap);
 				}
 			} catch (Exception e) {
@@ -228,6 +229,7 @@ import model.Student;
 								Application ap = new Application();
 								ap.setSubject_id_1(rs.getString("subject_id_1"));
 								ap.setSubject_id_2(rs.getString("subject_id_2"));
+	
 								list.add(ap);
 							}
 						} catch (Exception e) {

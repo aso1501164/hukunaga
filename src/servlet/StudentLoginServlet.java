@@ -78,10 +78,11 @@ public class StudentLoginServlet extends HttpServlet {
 
 		if (st != null) { // idとpassが一致したらG102に遷移
 			session.setAttribute("loginStudentID", st.getStudent_id());
-			// セッションスコープにログインユーザー情報を保存(getsession「loginStudentID」でいつでも生徒のID呼べるよ)
+			// セッションスコープにログインユーザー情報を保存(「loginStudentID」でいつでも生徒のID呼べるよ)
 			ApplicationDAO applicationDAO = new ApplicationDAO();
-			ArrayList<Application> confList = applicationDAO.selectConfList(student_id);
-			request.setAttribute("ConfList", confList);
+			//ArrayList<Application> list = applicationDAO.selectConfList(student_id);
+			//request.setAttribute("ConfList", list);
+			request.setAttribute("ConfList", applicationDAO.selectConf(student_id));
 
 //
 
