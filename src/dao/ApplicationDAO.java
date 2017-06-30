@@ -76,7 +76,20 @@ public class ApplicationDAO {
 			// sql文を実行
 			rs = stmt.executeQuery();
 
+<<<<<<< HEAD
 			while (rs.next()) {
+=======
+				while (rs.next()) {
+					Application ap = new Application();
+					// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
+					// DBから取得したデータをScheduleオブジェクトに格納
+					ap.setStudent_id(rs.getString("student_id"));
+					ap.setSubject_name_1(rs.getString("subject_name_1"));
+					ap.setSubject_name_2(rs.getString("subject_name_2"));
+					list.add(ap);
+				}
+			} catch (Exception e) {
+>>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 				Application ap = new Application();
 				// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
 				// DBから取得したデータをScheduleオブジェクトに格納
@@ -184,6 +197,7 @@ public class ApplicationDAO {
 			// DB接続
 			connection();
 
+<<<<<<< HEAD
 			String sql = "INSERT INTO application(student_id,subject_id_1,subject_id_2,year,subject_name_1,subject_name_2) VALUES(?,?,?,?,?,?);";
 
 			stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
@@ -245,4 +259,71 @@ public class ApplicationDAO {
 		}
 		return list;
 	}
+=======
+							while (rs.next()) {
+								Application ap = new Application();
+								ap.setSubject_id_1(rs.getString("subject_id_1"));
+								ap.setSubject_id_2(rs.getString("subject_id_2"));
+	
+								list.add(ap);
+							}
+						} catch (Exception e) {
+							Application ap = new Application();
+							ap = null;
+							System.out.println("受講者情報");
+							list.add(null);
+						} finally {
+							try {
+								close();
+							} catch (Exception e) {
+						}
+						}
+						return list;		}
+		
+		
+		//G102
+				public ArrayList<Application> getApplicationsByStudentId(String studentId){
+
+					ArrayList<Application> applications = new ArrayList<Application>();
+
+					try{
+						//DB接続
+						connection();
+
+						//
+						String sql = "SELECT student_id, subject_name_1, subject_name_2 "
+								+ " FROM application "
+								+ "WHERE student_id = ? AND subject_name_1 = ? AND subject_name_2 = ?";
+						stmt = con.prepareStatement(sql);
+						stmt.setString(1, studentId);
+						rs = stmt.executeQuery();
+
+
+						//取得したデータ1件1件をモデルに格納する
+						while (rs.next()){
+							Application application = new Application();
+
+							//
+							application.setStudent_id(rs.getString("student_id"));
+							application.setSubject_name_1(rs.getString("subject_name_1"));
+							application.setSubject_name_2(rs.getString("subject_name_2"));
+
+							//
+							applications.add(application);
+
+						}
+
+					}catch (Exception e){
+
+					}finally {
+						try{
+							close();
+						}catch (Exception e){
+
+						}
+					}
+					return applications;
+					//ss
+				}
+>>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 }

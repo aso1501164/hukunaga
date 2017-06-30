@@ -19,6 +19,7 @@ comm:生徒用ログインページ
 </head>
 
 <body background="img/140704wall1b.jpg">
+<div class="center">
 <div class="container">
 
 	<h1>ログインページ（学生用）</h1>
@@ -30,7 +31,7 @@ comm:生徒用ログインページ
 				<label>ユーザーID</label>
 				<div class="row">
 					<div class="col-xs-3">
-						<input type="text" name="userID" class="form-control" placeholder="ユーザーID">
+						<input type="text" name="student_id" class="form-control" placeholder="ユーザーID">
 					</div>
 				</div>
 			</div>
@@ -44,6 +45,7 @@ comm:生徒用ログインページ
 			</div>
 			<button type="submit">ログイン</button>
 		</form>
+	</div>
 	</div>
 </body>
 </html>
