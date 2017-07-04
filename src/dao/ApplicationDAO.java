@@ -76,9 +76,6 @@ public class ApplicationDAO {
 			// sql文を実行
 			rs = stmt.executeQuery();
 
-<<<<<<< HEAD
-			while (rs.next()) {
-=======
 				while (rs.next()) {
 					Application ap = new Application();
 					// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
@@ -88,15 +85,6 @@ public class ApplicationDAO {
 					ap.setSubject_name_2(rs.getString("subject_name_2"));
 					list.add(ap);
 				}
-			} catch (Exception e) {
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
-				Application ap = new Application();
-				// 1件分のデータをBeanに格納し、それをListに入れてjspに渡す
-				// DBから取得したデータをScheduleオブジェクトに格納
-				ap.setSubject_id_1(rs.getString("subject_id_1"));
-				ap.setSubject_id_2(rs.getString("subject_id_2"));
-				list.add(ap);
-			}
 		} catch (Exception e) {
 			Application ap = new Application();
 			ap = null;
@@ -197,7 +185,6 @@ public class ApplicationDAO {
 			// DB接続
 			connection();
 
-<<<<<<< HEAD
 			String sql = "INSERT INTO application(student_id,subject_id_1,subject_id_2,year,subject_name_1,subject_name_2) VALUES(?,?,?,?,?,?);";
 
 			stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
@@ -239,32 +226,11 @@ public class ApplicationDAO {
 			stmt.setString(1, student_id);
 			// sql文を実行
 			rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				Application ap = new Application();
-				ap.setSubject_id_1(rs.getString("subject_id_1"));
-				ap.setSubject_id_2(rs.getString("subject_id_2"));
-				list.add(ap);
-			}
-		} catch (Exception e) {
-			Application ap = new Application();
-			ap = null;
-			System.out.println("受講者情報");
-			list.add(null);
-		} finally {
-			try {
-				close();
-			} catch (Exception e) {
-			}
-		}
-		return list;
-	}
-=======
 							while (rs.next()) {
 								Application ap = new Application();
 								ap.setSubject_id_1(rs.getString("subject_id_1"));
 								ap.setSubject_id_2(rs.getString("subject_id_2"));
-	
+
 								list.add(ap);
 							}
 						} catch (Exception e) {
@@ -279,8 +245,8 @@ public class ApplicationDAO {
 						}
 						}
 						return list;		}
-		
-		
+
+
 		//G102
 				public ArrayList<Application> getApplicationsByStudentId(String studentId){
 
@@ -325,5 +291,5 @@ public class ApplicationDAO {
 					return applications;
 					//ss
 				}
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
+
 }

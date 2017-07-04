@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-=======
 	pageEncoding="UTF-8"%>
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 <%@ include file="/WEB-INF/jsp/common.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,16 +34,12 @@
 <form action="<%=request.getContextPath()%>/ToG103" method="post">
 <input type="submit" value="変更">
 </form>
-<<<<<<< HEAD
 <c:if test="${!empty ConfList}">
 	<c:out value="${message}"/>
 </c:if>
 <input type="button" Value="戻る" onClick="history.go(-1);">
-
-=======
 <form action="<%=request.getContextPath()%>/ToG104" method="post">
 <input type="submit" value="登録">
 </form>
->>>>>>> branch 'master' of https://github.com/aso1501164/hukunaga.git
 </body>
 </html>
